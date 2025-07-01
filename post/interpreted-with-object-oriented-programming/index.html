@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Interpreted with Object-Oriented Programming | Qian</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1751387141071">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="**One sentence for OOP: Object-oriented programming (OOP) is a programming paradigm that uses objects, which contain dat..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhaoq0901.github.io">
+        <img src="https://zhaoq0901.github.io/images/avatar.png?v=1751387141071" class="site-logo">
+        <h1 class="site-title">Qian</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            Home
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Fries on the pier
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Interpreted with Object-Oriented Programming</h2>
+            <div class="post-date">2023-05-26</div>
+            
+            <div class="post-content" v-pre>
+              <p>**One sentence for OOP: Object-oriented programming (OOP) is a programming paradigm that uses objects, which contain data and methods, to model real-world entities and their interactions. **</p>
+<ol>
+<li>
+<p>Classes and Objects</p>
+<ul>
+<li>A class is a template; an object is a concrete instance.</li>
+</ul>
+</li>
+<li>
+<p>Methods</p>
+<ul>
+<li>Definition and invocation!</li>
+</ul>
+</li>
+<li>
+<p>Use of Objects</p>
+<ul>
+<li>Reference types: Primitive types (byte, short, int, float, boolean, long, char)<br>
+Objects are operated via references: Stack ---&gt; Heap (address)</li>
+</ul>
+</li>
+<li>
+<p>Attributes: Field / Member Variable</p>
+<ul>
+<li>
+<p>Default Initialization:<br>
+Numbers: 0, 0.0<br>
+char: \u0000<br>
+boolean: false<br>
+Reference: null</p>
+</li>
+<li>
+<p>Syntax: Modifier AttributeType AttributeName = AttributeValue</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Object Creation and Usage</p>
+<ul>
+<li>Must use the <code>new</code> keyword to create an object, with a constructor: <code>Person amy = new Person();</code></li>
+<li>Accessing object attributes: <code>amy.name</code></li>
+<li>Calling object methods: <code>amy.sleep()</code></li>
+</ul>
+</li>
+<li>
+<p>Class:</p>
+<ul>
+<li>Static properties (attributes)</li>
+<li>Dynamic behavior (methods)</li>
+</ul>
+</li>
+</ol>
+<h3 id="example-extends">Example: extends</h3>
+<pre><code>public class Main {
+    public static void main(String[] args) {
+        // Teacher teacher = new Teacher();
+        // teacher.say(); // There's nothing in Teacher, but it still prints &quot;Hello, world&quot;
+
+        // System.out.println(teacher.a); // The property 'a' is private and cannot be inherited
+
+        // teacher.test(&quot;Caroling&quot;);
+
+        // teacher.testSay();
+
+        // Teacher teacher = new Teacher();
+    }
+}
+</code></pre>
+<pre><code>// Parent class / Base class
+public class People {
+
+    public People() {
+        System.out.println(&quot;People constructor with no arguments executed&quot;);
+    }
+
+    // Private attributes cannot be inherited
+    private int a = 1000;
+
+    // Protected attribute
+    protected String name = &quot;Amy&quot;;
+
+    // All public methods are inherited by the subclass
+    public void say() {
+        System.out.println(&quot;Hello, world&quot;);
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }   
+}
+
+// In Java, all classes by default directly or indirectly inherit from Object
+// Java supports single inheritance only — a parent class can have multiple subclasses,
+// but a subclass can inherit from only one parent class
+</code></pre>
+<pre><code>// Inheritance using extends: Derived class, Subclass
+// Teacher is a People
+// Ctrl + H: Inheritance tree
+public class Teacher extends People {
+
+    public Teacher() {
+        // Hidden code: implicitly calls the parent class's no-argument constructor
+        // super(); // Calling the parent constructor must be the first line in the subclass constructor
+
+        System.out.println(&quot;Teacher no-argument constructor executed&quot;);
+    }
+
+    // this &lt;-&gt; super
+
+    private String name = &quot;Max&quot;;
+
+    public void test(String name) {
+        System.out.println(name);           // Parameter passed into the method
+        System.out.println(this.name);      // Attribute defined in the current subclass
+        System.out.println(super.name);     // Attribute inherited from the parent class
+    }
+
+    @Override
+    public void say() {
+        System.out.println(&quot;I'm worm&quot;);
+    }
+
+    public void testSay() {
+        this.say();     // Method from the current subclass
+        super.say();    // Method inherited from the parent class
+    }
+
+    /*
+        super:
+            1. super calls the parent class's constructor and must be the first line in a constructor.
+            2. super can only appear in subclass methods or constructors.
+            3. super and this cannot be used to call constructors in the same method.
+
+        v.s. this:
+            They refer to different objects:
+                this: the current object calling the method
+                super: a reference to the parent class's object
+            Preconditions:
+                this: can be used without inheritance
+                super: can only be used when inheritance exists (via extends)
+            In constructors:
+                this(): calls another constructor in the same class
+                super(): calls the parent class’s constructor
+    */
+}
+</code></pre>
+<h3 id="example-override">Example: override</h3>
+<pre><code>public class Main {
+    public static void main(String[] args) {
+
+        // There’s a big difference between calling static methods and non-static methods!
+        // Overriding does not apply to static methods
+
+        // Static methods: method call is determined only by the type on the left-hand side
+        A a = new A();
+        a.test(); // static: A
+
+        // Static method: parent class (B) reference points to child class (A)
+        B b = new A(); // For non-static methods: child class (A) overrides the parent class (B)
+        b.test(); // static: B
+    }
+
+    /*
+        Overriding: requires an inheritance relationship; the subclass overrides a method from the parent class
+            1. Method name must be the same
+            2. Parameter list must be the same
+            3. Modifiers: visibility can be increased but not reduced: public &gt; protected &gt; default &gt; private
+            4. Thrown exceptions: the scope can be reduced but not expanded: ClassNotFoundException &lt;&lt;&lt; Exception
+
+        Overriding means: subclass method and parent class method must be identical in signature; body can differ
+        Shortcut: Alt + Insert → Override
+     */
+}
+</code></pre>
+<pre><code>// Inherits from B
+public class A extends B {
+
+    // Alt + Insert → Override
+    @Override // Annotation indicating method override
+    public void test() {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;A =&gt; test&quot;);
+    }
+
+    // public static void test(){
+    //     System.out.println(&quot;A =&gt; test&quot;);
+    // }
+
+    // Alt + Insert
+}
+</code></pre>
+<pre><code>// Overriding applies only to methods, not to attributes (fields)
+
+public class B {
+    // Only methods without the static modifier can be overridden
+    public void test() {
+        System.out.println(&quot;B =&gt; test&quot;);
+    }
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhaoq0901.github.io/tag/mUmfYS2tOs/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

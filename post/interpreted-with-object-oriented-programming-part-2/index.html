@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Interpreted with Object-Oriented Programming - Part 2 | Qian</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1751387141071">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Example: Polymorphism
+
+With the following Main class, try creating the Student &amp; People class with override!
+
+public..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhaoq0901.github.io">
+        <img src="https://zhaoq0901.github.io/images/avatar.png?v=1751387141071" class="site-logo">
+        <h1 class="site-title">Qian</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            Home
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Fries on the pier
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Interpreted with Object-Oriented Programming - Part 2</h2>
+            <div class="post-date">2023-05-27</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="example-polymorphism">Example: Polymorphism</h3>
+<ul>
+<li>With the following Main class, try creating the <code>Student</code> &amp; <code>People</code> class with override!</li>
+</ul>
+<pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        // The actual type of an object is fixed
+        // new Students();
+        // new People();
+
+        // But the reference type (on the left) can vary:
+        // A parent class reference can point to a subclass instance: People ... = new Students();
+
+        // Students can call both its own methods and methods inherited from the People class
+
+        Students s1 = new Students();
+        // People: a parent type reference pointing to a subclass; can’t call subclass-specific methods
+        People s2 = new Students();
+        // Object s3 = new Students();
+
+        // The methods an object can call mostly depend on the reference type on the left-hand side,
+        // not the actual object on the right-hand side.
+
+        s1.run();
+        s2.run(); // The subclass overrides the parent's method, so the subclass method is executed
+
+        ((Students)s2).say(); // Cast s2 to Students in order to use subclass-only methods
+
+        // s2.say(); &lt;-- Error: The method say() is undefined for the type People
+
+        // instanceof
+
+        // System.out.println(x instanceof y);
+        // This checks whether x is a subtype of y — used to test parent-child relationship for compatibility
+
+        // Object &gt; String        
+        // Object &gt; People &gt; Students 
+
+        Students students = new Students();
+        People people = new People();
+
+        System.out.println(students instanceof People); // true
+        System.out.println(people instanceof Students); // false
+
+        // Students students2 = new Students();
+        People students3 = new Students(); // Parent reference pointing to child is allowed
+
+        // Casting from high to low refers to capacity conversion.
+        // A subclass extends the parent class (has more capabilities),
+        // so to use subclass-specific methods, we must cast the parent reference to the subclass type.
+        // A subclass is always an instance of the parent class,
+        // but a parent class is not necessarily an instance of the subclass.
+        // That’s why we must explicitly cast when using subclass methods on a parent reference.
+
+        ((Students) students3).say();
+    }
+
+    /*
+    Polymorphism:
+        1. Polymorphism applies to methods only, not to attributes.
+        2. There must be a relationship between parent and child classes.
+           (Otherwise, you'll get a ClassCastException!)
+        3. Conditions for polymorphism:
+            - Inheritance relationship
+            - Method overriding
+            - Parent class reference pointing to subclass object: People s2 = new Students();
+        4. When polymorphism doesn’t apply:
+            - static methods: belong to the class, not the instance
+            - final constants
+            - private methods
+            - constructors
+     */
+
+    /*
+    instanceof:
+        1. Parent reference points to a child object
+        2. Upcasting: cast child to parent (automatic)
+        3. Downcasting: cast parent to child (manual/forced)
+        4. Convenient for calling methods, reduces code repetition, cleaner
+
+    Encapsulation | Inheritance | Polymorphism
+    */
+}
+</code></pre>
+<h3 id="example-abstract-interface">Example: Abstract &amp; Interface</h3>
+<ul>
+<li>Giving following <code>abstract</code> &amp; <code>interface</code> class, try write a simple subclass example implementing this abstract class and interface!</li>
+</ul>
+<pre><code>// abstract: Abstract class. Use `extends` for single inheritance, interfaces support multiple inheritance.
+
+public abstract class Abstract {
+
+    // Constraint: subclasses must override this method
+    // abstract method: only the method name, no implementation
+    public abstract void doSomething();
+
+    // 1. Cannot be instantiated (no `new`); must be implemented by a subclass — acts as a constraint
+    //    (Like a power strip constraining the plug shape, but not what device gets plugged in)
+    // 2. Abstract methods must be inside abstract classes
+    // 3. Abstract classes can also contain regular (non-abstract) methods
+}
+</code></pre>
+<pre><code>// interface: A contract/framework definition — cannot contain method implementations
+// Interfaces must be implemented by a class
+public interface Interface {
+
+    // Default constants — global static variables
+    int a = 10; // Equivalent to: public static final int a = 10;
+
+    // All methods in an interface are implicitly abstract and public
+    void add();     // Equivalent to: public abstract void add();
+    void delete();
+    void update();
+    void query();
+}
+
+/* 
+ * Interface:
+ *  1. Acts as a constraint or template
+ *  2. Defines methods to be implemented by others
+ *  3. Fields are implicitly public static final
+ *  4. Methods are implicitly public abstract
+ *  5. All interface methods must be overridden in implementing classes
+ */
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhaoq0901.github.io/tag/mUmfYS2tOs/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhaoq0901.github.io/post/interpreted-with-object-oriented-programming/">
+                  <h3 class="post-title">
+                    Interpreted with Object-Oriented Programming
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

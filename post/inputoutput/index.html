@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Input/Output | Qian</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1751387141071">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="One sentence for I/O: the communication between a computer system and external devices or the user, encompassing both th..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhaoq0901.github.io">
+        <img src="https://zhaoq0901.github.io/images/avatar.png?v=1751387141071" class="site-logo">
+        <h1 class="site-title">Qian</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            Home
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Fries on the pier
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Input/Output</h2>
+            <div class="post-date">2023-06-10</div>
+            
+            <div class="post-content" v-pre>
+              <p><strong>One sentence for I/O: the communication between a computer system and external devices or the user, encompassing both the data sent to the computer and the data received from it.</strong></p>
+<h3 id="example-bufferedoutputstream-bufferedinputstream">Example: BufferedOutputStream ＆ BufferedInputStream</h3>
+<pre><code>import java.io.*;
+
+// Byte streams + wrapped streams for file copying
+public class BufferedCopy {
+    public static void main(String[] args) throws Exception {
+        String srcPath = &quot;C:\\Users\\zhao\\Downloads\\wonder.pdf&quot;; // Source file path
+        String readPath = &quot;D:\\wonder.pdf&quot;; // Destination file path
+
+        // Create a BufferedInputStream object
+        BufferedInputStream bip = new BufferedInputStream(new FileInputStream(srcPath));
+        // Create a BufferedOutputStream object
+        BufferedOutputStream bop = new BufferedOutputStream(new FileOutputStream(readPath, false));
+
+        // Loop to read the file and write it to the destination path
+        byte[] buff = new byte[1024];
+        int readLength = 0;
+        // When read() returns -1, it means end of file
+        while ((readLength = bip.read(buff)) != -1) {
+            bop.write(buff, 0, readLength);
+        }
+
+        // Close the streams
+        if (bip != null) {
+            bip.close();
+        }
+        if (bop != null) {
+            bop.close();
+        }
+    }
+}
+</code></pre>
+<h3 id="example-create-a-file-write-to-a-file-and-read-from-a-file">Example: Create a file, write to a file and read from a file</h3>
+<ul>
+<li>
+<p>InputStream - Byte input stream</p>
+</li>
+<li>
+<p>OutputStream - Byte output stream</p>
+</li>
+<li>
+<p>Reader - Character input stream</p>
+</li>
+<li>
+<p>Writer - Character output stream</p>
+</li>
+<li>
+<p>When garbled characters (e.g., with Chinese text) appear using character/byte streams, a conversion stream is needed to specify the encoding format.</p>
+</li>
+<li>
+<p>Character/byte stream (garbled) -&gt; Conversion stream (specify encoding) -&gt; Character/byte stream (normal)</p>
+</li>
+</ul>
+<pre><code>import java.io.*;
+
+public class FileCreate {
+    public static void main(String[] args) {
+        // new FileCreate().Create();
+        // new FileCreate().readFile(); // Extension: Output might show garbled Chinese characters
+        new FileCreate().writeFile();
+    }
+
+    // Create a file
+    // new File(String pathname) // Construct file object based on path
+    public void Create() {
+        String creatFile = &quot;D:\\test.txt&quot;;
+
+        // The file object here only exists in Java memory.
+        // Only calling .createNewFile() will actually create the file on the disk.
+        File file = new File(creatFile);
+
+        try {
+            file.createNewFile();
+            System.out.println(&quot;Successfully created test.txt&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Write to a file using FileOutputStream
+    public void writeFile() {
+        String filePath = &quot;D:\\test.txt&quot;;
+
+        FileOutputStream fileOutputStream = null;
+        try {
+            // 1. new FileOutputStream(filePath): overwrites existing content
+            // 2. new FileOutputStream(filePath, true): appends to existing content
+            fileOutputStream = new FileOutputStream(filePath, true);
+
+            // Write a string to the file
+            String str = &quot;Hello, world!&quot;;
+            fileOutputStream.write(str.getBytes()); // Convert string to byte array
+            System.out.println(&quot;Write successful.&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Read from a file using FileInputStream
+    public void readFile() {
+        String filePath = &quot;D:\\test.txt&quot;;
+        byte[] buf = new byte[8]; // Read 8 bytes at a time
+        int readLen;
+        FileInputStream fileInputStream = null;
+
+        try {
+            // Create FileInputStream object to read the file
+            fileInputStream = new FileInputStream(filePath);
+
+            // Read up to buf.length bytes into the buffer
+            // Returns -1 if the end of the file is reached
+            while ((readLen = fileInputStream.read(buf)) != -1) {
+                // Convert bytes to string and print
+                System.out.print(new String(buf, 0, readLen));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Always close the stream to free resources
+            try {
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="example-serialization-deserialization">Example: Serialization &amp; Deserialization</h3>
+<ul>
+<li>Serialization: When saving data, both the data's value and type are saved.</li>
+<li>Deserialization: When restoring data, both the data's value and type are restored.</li>
+</ul>
+<pre><code>import java.io.*;
+
+// ObjectInputStream
+// Demonstrates the use of ObjectInputStream to perform data deserialization
+
+public class ObjectInStream {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, EOFException {
+        // Specify the file to deserialize
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
+
+        // The order of reading (deserialization) must match the order used during saving (serialization),
+        // otherwise an exception will occur.
+        System.out.println(ois.readInt());
+        System.out.println(ois.readBoolean());
+
+        // System.out.println(ois.readObject()); // Underlying object is cast to Dog
+
+        Object dog = ois.readObject();
+        System.out.println(&quot;Runtime type: &quot; + dog.getClass());
+        System.out.println(&quot;Dog info: &quot; + dog);
+        // Note: ObjectOutputStream must flush the stream during serialization
+
+        // Close the stream
+        ois.close();
+    }
+}
+</code></pre>
+<pre><code>// ObjectOutputStream:
+// Demonstrates the usage of ObjectOutputStream to perform data serialization.
+
+public class ObjectOutStream {
+    public static void main(String[] args) throws Exception {
+
+        // The file where serialized data will be saved.
+        // The actual file type depends on the data being saved, not the file extension.
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath, false));
+
+        // Serialize data to d:\\text.txt
+        oos.writeInt(100);           // int -&gt; Integer (implements Serializable)
+        oos.writeBoolean(true);      // boolean -&gt; Boolean (implements Serializable)
+
+        // Save a Dog object
+        oos.writeObject(new Dog(&quot;Happiness&quot;));
+
+        // Close the stream
+        oos.close();
+    }
+}
+
+// The Dog class must implement the Serializable interface to be serialized
+class Dog implements Serializable {
+    String name;
+
+    // serialVersionUID: Serialization version ID to improve compatibility
+    private static final long serialVersionUID = 1L;
+
+    // Constructor
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Dog [name=&quot; + name + &quot;]&quot;;
+    }
+
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</code></pre>
+<h3 id="example-reader-writer">Example: Reader &amp; Writer</h3>
+<ul>
+<li>
+<p>Node stream</p>
+</li>
+<li>
+<p>Wrapper stream</p>
+</li>
+<li>
+<p>Use the conversion stream InputStreamReader to solve Chinese character encoding issues</p>
+</li>
+<li>
+<p>(Convert byte stream FileInputStream into character stream InputStreamReader with specified encoding)</p>
+</li>
+</ul>
+<pre><code>import java.io.*;
+
+public class Reader {
+    public static void main(String[] args) throws Exception {
+        //new Reader().fileReaderExample();
+        new Reader().bufferedReaderExample(); // If not handled properly, throws an exception and may cause Chinese garbled output
+    }
+
+    // Node stream
+
+    // FileReader
+    // Read file using a character array
+    // Using FileReader to read files encoded with Windows system default (Chinese GBK) may cause garbled text
+    // e.g., &quot;test测试&quot; -&gt; &quot;test娴嬭瘯銆?&quot;
+
+    public void fileReaderExample() {
+        String filePath = &quot;d:\\text.txt&quot;;
+        FileReader fileReader = null;
+
+        int readLength = 0;
+        char[] buf = new char[8];
+
+        try {
+            // 1. Create a FileReader object
+            fileReader = new FileReader(filePath);
+
+            // Read the file in a loop using read(buf), which returns the number of characters actually read
+            // If it returns -1, it means the end of the file has been reached
+            while ((readLength = fileReader.read(buf)) != -1) {
+                System.out.println(new String(buf, 0, readLength)); // Read buf starting from index 0, for readLength characters
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Wrapper stream
+
+    // BufferedReader
+    public void bufferedReaderExample() throws Exception {
+        String filePath = &quot;D:\\projects\\damai.py&quot;;
+
+        // Byte stream -&gt; conversion stream (with specified encoding) -&gt; character stream
+        BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(filePath), &quot;utf-8&quot;)
+        );
+
+        // Read file line by line for high efficiency
+        String line;
+        // 1. bufferedReader.readLine() reads the file line by line
+        // 2. Returns null when end of file is reached
+        // 3. readLine() does not include the line break character
+        while ((line = bufferedReader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        // Close outer stream
+        bufferedReader.close();
+    }
+}
+</code></pre>
+<pre><code>import java.io.*;
+
+public class Writer {
+
+    public static void main(String[] args) throws Exception {
+        
+        // Wrapper stream
+        // BufferedWriter
+
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        // Create a BufferedWriter object
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath));
+        bufferedWriter.write(&quot;hello, world!&quot;);
+
+        // Insert a system-dependent newline
+        bufferedWriter.newLine();
+
+        // Only need to close the outer stream; new FileWriter() will be closed internally
+        bufferedWriter.close();
+
+        // FileWriter
+        // Node stream
+        // new Writer().fileWriterExample(args);
+    }
+
+    // FileWriter
+    // Node stream
+    public void fileWriterExample(String[] args) {
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        // 1. Create a FileWriter object
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(filePath); // Default behavior is to overwrite
+            fileWriter.write(&quot;test 测试.&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // FileWriter must be closed using .close() or flushed using .flush()
+            // Otherwise, the content will only be stored in memory and not actually written to the file
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhaoq0901.github.io/tag/mUmfYS2tOs/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhaoq0901.github.io/post/annotation-and-reflection/">
+                  <h3 class="post-title">
+                    Annotation &amp; Reflection
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
