@@ -1,0 +1,313 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interpreted with Object-Oriented Programming - Part 2 | Qian</title>
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1771370411468">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Interpreted with Object-Oriented Programming - Part 2 | Qian - Atom Feed" href="https://zhaoq0901.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Example: Polymorphism
+
+With the following Main class, try creating the Student &amp; People class with override!
+
+public..." />
+    <meta name="keywords" content="Java" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhaoq0901.github.io">
+  <img class="avatar" src="https://zhaoq0901.github.io/images/avatar.png?v=1771370411468" alt="">
+  </a>
+  <h1 class="site-title">
+    Qian
+  </h1>
+  <p class="site-description">
+    Lack of Sleep
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/qians-resume" class="menu">
+          Résumé
+        </a>
+      
+    
+      
+        <a href="/post/cv-of-failures" class="menu">
+          CV of Failures
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/zhaoq0901" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Interpreted with Object-Oriented Programming - Part 2
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-05-27
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://zhaoq0901.github.io/tag/PpslUR7IvK/" class="post-tag">
+                  # Java
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="example-polymorphism">Example: Polymorphism</h1>
+<ul>
+<li>With the following Main class, try creating the <code>Student</code> &amp; <code>People</code> class with override!</li>
+</ul>
+<pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        // The actual type of an object is fixed
+        // new Students();
+        // new People();
+
+        // But the reference type (on the left) can vary:
+        // A parent class reference can point to a subclass instance: People ... = new Students();
+
+        // Students can call both its own methods and methods inherited from the People class
+
+        Students s1 = new Students();
+        // People: a parent type reference pointing to a subclass; can’t call subclass-specific methods
+        People s2 = new Students();
+        // Object s3 = new Students();
+
+        // The methods an object can call mostly depend on the reference type on the left-hand side,
+        // not the actual object on the right-hand side.
+
+        s1.run();
+        s2.run(); // The subclass overrides the parent's method, so the subclass method is executed
+
+        ((Students)s2).say(); // Cast s2 to Students in order to use subclass-only methods
+
+        // s2.say(); &lt;-- Error: The method say() is undefined for the type People
+
+        // instanceof
+
+        // System.out.println(x instanceof y);
+        // This checks whether x is a subtype of y — used to test parent-child relationship for compatibility
+
+        // Object &gt; String        
+        // Object &gt; People &gt; Students 
+
+        Students students = new Students();
+        People people = new People();
+
+        System.out.println(students instanceof People); // true
+        System.out.println(people instanceof Students); // false
+
+        // Students students2 = new Students();
+        People students3 = new Students(); // Parent reference pointing to child is allowed
+
+        // Casting from high to low refers to capacity conversion.
+        // A subclass extends the parent class (has more capabilities),
+        // so to use subclass-specific methods, we must cast the parent reference to the subclass type.
+        // A subclass is always an instance of the parent class,
+        // but a parent class is not necessarily an instance of the subclass.
+        // That’s why we must explicitly cast when using subclass methods on a parent reference.
+
+        ((Students) students3).say();
+    }
+
+    /*
+    Polymorphism:
+        1. Polymorphism applies to methods only, not to attributes.
+        2. There must be a relationship between parent and child classes.
+           (Otherwise, you'll get a ClassCastException!)
+        3. Conditions for polymorphism:
+            - Inheritance relationship
+            - Method overriding
+            - Parent class reference pointing to subclass object: People s2 = new Students();
+        4. When polymorphism doesn’t apply:
+            - static methods: belong to the class, not the instance
+            - final constants
+            - private methods
+            - constructors
+     */
+
+    /*
+    instanceof:
+        1. Parent reference points to a child object
+        2. Upcasting: cast child to parent (automatic)
+        3. Downcasting: cast parent to child (manual/forced)
+        4. Convenient for calling methods, reduces code repetition, cleaner
+
+    Encapsulation | Inheritance | Polymorphism
+    */
+}
+</code></pre>
+<h1 id="example-abstract-interface">Example: Abstract &amp; Interface</h1>
+<ul>
+<li>Giving following <code>abstract</code> &amp; <code>interface</code> class, try write a simple subclass example implementing this abstract class and interface!</li>
+</ul>
+<pre><code>// abstract: Abstract class. Use `extends` for single inheritance, interfaces support multiple inheritance.
+
+public abstract class Abstract {
+
+    // Constraint: subclasses must override this method
+    // abstract method: only the method name, no implementation
+    public abstract void doSomething();
+
+    // 1. Cannot be instantiated (no `new`); must be implemented by a subclass — acts as a constraint
+    //    (Like a power strip constraining the plug shape, but not what device gets plugged in)
+    // 2. Abstract methods must be inside abstract classes
+    // 3. Abstract classes can also contain regular (non-abstract) methods
+}
+</code></pre>
+<pre><code>// interface: A contract/framework definition — cannot contain method implementations
+// Interfaces must be implemented by a class
+public interface Interface {
+
+    // Default constants — global static variables
+    int a = 10; // Equivalent to: public static final int a = 10;
+
+    // All methods in an interface are implicitly abstract and public
+    void add();     // Equivalent to: public abstract void add();
+    void delete();
+    void update();
+    void query();
+}
+
+/* 
+ * Interface:
+ *  1. Acts as a constraint or template
+ *  2. Defines methods to be implemented by others
+ *  3. Fields are implicitly public static final
+ *  4. Methods are implicitly public abstract
+ *  5. All interface methods must be overridden in implementing classes
+ */
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#example-polymorphism">Example: Polymorphism</a></li>
+<li><a href="#example-abstract-interface">Example: Abstract &amp; Interface</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhaoq0901.github.io/post/interpreted-with-object-oriented-programming/">
+              <h3 class="post-title">
+                Interpreted with Object-Oriented Programming
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

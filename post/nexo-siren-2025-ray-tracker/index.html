@@ -1,0 +1,268 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>nEXO SIREN 2025: Ray Tracker | Qian</title>
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1771370411468">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="nEXO SIREN 2025: Ray Tracker | Qian - Atom Feed" href="https://zhaoq0901.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="One line objective: A rotating dual-detector system using Cosmic Watch devices to minimize false coincidences and analyz..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhaoq0901.github.io">
+  <img class="avatar" src="https://zhaoq0901.github.io/images/avatar.png?v=1771370411468" alt="">
+  </a>
+  <h1 class="site-title">
+    Qian
+  </h1>
+  <p class="site-description">
+    Lack of Sleep
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/qians-resume" class="menu">
+          Résumé
+        </a>
+      
+    
+      
+        <a href="/post/cv-of-failures" class="menu">
+          CV of Failures
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/zhaoq0901" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              nEXO SIREN 2025: Ray Tracker
+            </h2>
+            <div class="post-info">
+              <span>
+                2025-05-28
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p><strong>One line objective</strong>: A rotating dual-detector system using Cosmic Watch devices to minimize false coincidences and analyze cosmic ray detection efficiency through synchronized motion, Python programming, and data analysis.</p>
+<h1 id="key-terms">Key Terms:</h1>
+<ul>
+<li>
+<p><strong>Cosmic Rays</strong>: Tiny, high-energy particles from space that hit Earth all the time. They come from powerful events like exploding stars. When they hit our atmosphere, they break apart and create smaller particles—some of which reach the ground. Scientists study them to learn more about space and the universe.</p>
+</li>
+<li>
+<p><strong>Cosmic watch</strong>: A compact particle detector that measures muons, which are the particles created when cosmic rays hit Earth's atmosphere. It uses a light-sensitive sensor and electronics to count each muon that passes through, helping researchers and students study cosmic radiation and its behavior.</p>
+</li>
+</ul>
+<h1 id="observation-question">Observation &amp; Question</h1>
+<ul>
+<li>Cosmic ray muons arrive more frequently from overhead due to atmospheric shielding.</li>
+<li><strong>How does the orientation angle of the detector affect muon detection rate?</strong></li>
+</ul>
+<h1 id="3d-printed-dual-axis-tracker-motors-setup">3D-Printed Dual Axis Tracker &amp; Motors Setup</h1>
+<figure data-type="image" tabindex="1"><img src="https://zhaoq0901.github.io/post-images/1753070586489.png" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>Based on a solar tracker design modified for added stability and extended range of motion</p>
+</li>
+<li>
+<p>Allows for 360° horizontal and 180° vertical rotation</p>
+</li>
+<li>
+<p>Modular design to allow easy setup and adjustment</p>
+</li>
+<li>
+<p>3D printed in PLA filament</p>
+</li>
+</ul>
+<p><img src="https://zhaoq0901.github.io/post-images/1753070764633.png" alt="" loading="lazy"><br>
+<em>Tinkercad Design</em></p>
+<p><img src="https://zhaoq0901.github.io/post-images/1753070742312.png" alt="" loading="lazy"><br>
+<em>Setup</em></p>
+<p>Our setup includes two SG90 servo motors: one controls the left and right (horizontal) movement of the Cosmic Watch, while the other controls the up and down (vertical) movement.</p>
+<h1 id="data-communication-between-arduinos">Data Communication Between Arduinos</h1>
+<figure data-type="image" tabindex="2"><img src="https://zhaoq0901.github.io/post-images/1753071207533.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Collation</strong><br>
+<em>Collating &amp; Sending data</em></li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://zhaoq0901.github.io/post-images/1753071218864.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Rotation</strong><br>
+<em>Rotating &amp; Finding the best position</em></li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://zhaoq0901.github.io/post-images/1753071236778.png" alt="" loading="lazy"></figure>
+<ul>
+<li><em>No SD card</em></li>
+<li>Calculating Data by Arduinos</li>
+</ul>
+<h1 id="applying-rotation-in-real-world">Applying Rotation in Real-World</h1>
+<ul>
+<li>
+<p>Stop at each position for 30 seconds to examine the radiation counts</p>
+</li>
+<li>
+<p>Identify the position with the highest count to determine the best signal reception</p>
+</li>
+<li>
+<p>Return to the best position</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://zhaoq0901.github.io/post-images/1753071666287.png" alt="" loading="lazy"></figure>
+<p><em>The Video of Ray Tracker Ratation:</em></p>
+<p><strong>Please watch our final presentation on Youtube</strong></p>
+<h1 id="final-presentation-on-youtube">Final Presentation on Youtube</h1>
+<p><em>Interesting in more Project Detail and the challenges we were facing? Press play to see the video!</em></p>
+<figure data-type="image" tabindex="6"><a href="https://youtu.be/vpxcIna0-E0?si=ZRXJihSO7jPULFVa&amp;t=3233"><img src="https://markdown-videos-api.jorgenkh.no/youtube/vpxcIna0-E0?si=ZRXJihSO7jPULFVa&amp;t=3233" alt="" loading="lazy"></a></figure>
+<h1 id="future-improvements">Future Improvements</h1>
+<ul>
+<li>
+<p>Stronger motors capable of 360° positioning and dual cosmic watch</p>
+</li>
+<li>
+<p>Use Raspberry pi (mini-computer) that has stronger processing power to handle calculation (more angles and positions &amp; longer testing cycles to allow more data)</p>
+</li>
+<li>
+<p>Smaller and more stable dual axis tracker</p>
+</li>
+<li>
+<p>Receive SiMPs Voltage (how strong the muon hit was) after adjust to the best position</p>
+</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#key-terms">Key Terms:</a></li>
+<li><a href="#observation-question">Observation &amp; Question</a></li>
+<li><a href="#3d-printed-dual-axis-tracker-motors-setup">3D-Printed Dual Axis Tracker &amp; Motors Setup</a></li>
+<li><a href="#data-communication-between-arduinos">Data Communication Between Arduinos</a></li>
+<li><a href="#applying-rotation-in-real-world">Applying Rotation in Real-World</a></li>
+<li><a href="#final-presentation-on-youtube">Final Presentation on Youtube</a></li>
+<li><a href="#future-improvements">Future Improvements</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhaoq0901.github.io/post/datajam-2025/">
+              <h3 class="post-title">
+                DataJam 2025: How Household Income Shapes Food Insecurity from 2010 - 2019 in CA?
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

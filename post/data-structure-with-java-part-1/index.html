@@ -1,0 +1,667 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data structure with Java - Part 1 | Qian</title>
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1771370411468">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Data structure with Java - Part 1 | Qian - Atom Feed" href="https://zhaoq0901.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="One sentence of Data Structure: a data organization and storage format that is usually chosen for efficient access to da..." />
+    <meta name="keywords" content="Java" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhaoq0901.github.io">
+  <img class="avatar" src="https://zhaoq0901.github.io/images/avatar.png?v=1771370411468" alt="">
+  </a>
+  <h1 class="site-title">
+    Qian
+  </h1>
+  <p class="site-description">
+    Lack of Sleep
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/qians-resume" class="menu">
+          Résumé
+        </a>
+      
+    
+      
+        <a href="/post/cv-of-failures" class="menu">
+          CV of Failures
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/zhaoq0901" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Data structure with Java - Part 1
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-02-14
+              </span>
+              <span>
+                14 min read
+              </span>
+              
+                <a href="https://zhaoq0901.github.io/tag/PpslUR7IvK/" class="post-tag">
+                  # Java
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p><strong>One sentence of Data Structure: a data organization and storage format that is usually chosen for efficient access to data.</strong></p>
+<p><strong>One sentence of Java abstract data type (ADT): a type of data type whose behaviour is defined by a set of operations and values.</strong></p>
+<ul>
+<li>The ADT defines the logical form of the data type v.s. The data structure implements the physical form of the data type.</li>
+</ul>
+<h1 id="arraylist">ArrayList</h1>
+<p><strong>An ArrayList is like a resizable array.</strong></p>
+<blockquote>
+<p>The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added and removed from an ArrayList whenever you want.</p>
+</blockquote>
+<pre><code>import java.util.ArrayList;
+
+/**
+Create an ArrayList that allows containing the books or remove the books from the ArrayList.
+*/
+public class Books
+{
+	public static void main(String[] args) 
+	{
+            // Setup Books (List)
+            Information[] bookList = {
+                  new Information(&quot;Brave New World&quot;, &quot;Aldous Huxley&quot;, &quot;823.912&quot;, 1, &quot;Dystopian&quot;),
+                  new Information(&quot;The Alchemist&quot;, &quot;Paulo Coelho&quot;, &quot;869.342&quot;, 2, &quot;World Literature&quot;),
+                  new Information(&quot;Man's Search for Meaning&quot;, &quot;Viktor E. Frankl&quot;, &quot;150.195&quot;, 3, &quot;Psychology&quot;),
+                  new Information(&quot;The Diary of a Young Girl&quot;, &quot;Anne Frank&quot;, &quot;940.5318&quot;, 4, &quot;History&quot;),
+                  new Information(&quot;Crime and Punishment&quot;, &quot;Fyodor Dostoevsky&quot;, &quot;891.733&quot;, 2, &quot;Russian Literature&quot;),
+                  new Information(&quot;Freakonomics&quot;, &quot;Steven D. Levitt&quot;, &quot;330&quot;, 4, &quot;Economics&quot;),
+                  new Information(&quot;The Road&quot;, &quot;Cormac McCarthy&quot;, &quot;813.54&quot;, 3, &quot;Contemporary Literature&quot;),
+                  new Information(&quot;Silent Spring&quot;, &quot;Rachel Carson&quot;, &quot;363.738&quot;, 2, &quot;Environmental Science&quot;),
+                  new Information(&quot;The Prince&quot;, &quot;Niccolò Machiavelli&quot;, &quot;320.1&quot;, 1, &quot;Political Science&quot;),
+                  new Information(&quot;The Handmaid's Tale&quot;, &quot;Margaret Atwood&quot;, &quot;813.54&quot;, 2, &quot;Dystopian Fiction&quot;),
+                  };
+                  
+            // Setup Library (ArrayList)
+            // ArrayList &lt;Item&gt; myList = new ArrayList &lt;Item&gt; ();
+            ArrayList &lt;Information&gt; library = new ArrayList &lt;Information&gt; ();
+      
+            // statements that add selected books to the Library:
+            for (int index = 0; index &lt; bookList.length; index++)
+            {
+                  Information nextBook = bookList[index]; // simulates getting book from bookList
+                  library.add(nextBook);
+            } // end for
+
+            // for-each loop: Print books' information by looping the Information object in library
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            // remove the 2nd book information
+            library.remove(1);
+            // add one book
+            library.add(new Information(&quot;1984&quot;, &quot;George Orwell&quot;, &quot;823.912&quot;, 3, &quot;Dystopian Fiction&quot;));
+
+            System.out.println(&quot;\n---------Remove Book 2 and add one book------------\n&quot;);
+
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            // remove the 6th book information
+            library.remove(5);
+            // add one book
+            library.add(new Information(&quot;The Art of War&quot;, &quot;Sun Tzu&quot;, &quot;355.02&quot;, 1, &quot;Military Strategy&quot;));
+
+            System.out.println(&quot;\n---------Remove Book 6 and add one book------------\n&quot;);
+
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            // remove the first book information
+            library.remove(0);
+            // add one book
+            library.add(new Information(&quot;Cosmos&quot;, &quot;Carl Sagan&quot;, &quot;520&quot;, 4, &quot;Astronomy&quot;));
+
+            System.out.println(&quot;\n---------Remove Book 1 and add one book------------\n&quot;);
+
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            System.out.println(&quot;\n---------Remove All Books------------\n&quot;);
+
+            library.removeAll(library);
+
+      } // end main
+ } // end Books
+
+// Information
+class Information
+{
+   private String name;
+   private String author;
+   private String call_number;
+   private int floor;
+   private String section;
+
+      // Constructor
+	public Information(String name, String author, String call_number, int floor, String section)
+	{
+		this.name = name;
+		this.author = author;
+		this.call_number = call_number;
+		this.floor = floor;
+		this.section = section;
+	}
+
+	// Getters
+	public String getInformation()
+	{
+		return &quot;name: &quot; + name + &quot;, author: &quot; + author + &quot;, call_number: &quot; + call_number + &quot;, floor: &quot; + floor + &quot;, section: &quot; + section;
+	}
+} 
+</code></pre>
+<h1 id="linkedlist">LinkedList</h1>
+<p>The LinkedList class is a collection which can contain many objects of the same type. <em>It works the same as ArrayList. However, they built very differently.</em></p>
+<p>The <code>ArrayList</code> class has a regular array inside it. When an element is added, it is placed into the array. If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.</p>
+<p>The <code>LinkedList</code> stores its elements in &quot;containers.&quot; The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.</p>
+<h2 id="example">Example</h2>
+<p>Create, compile, and run a program that manages a <code>Patron</code> linked list.<br>
+Learn to familiarize with interfaces and assembling pieces of a program to produce the program.</p>
+<blockquote>
+<p>/**<br>
+OnlineShopper and all the built up programs<br>
+@author Frank M. Carrano<br>
+@version 4.0<br>
+*/</p>
+</blockquote>
+<pre><code>import Patron;
+import java.util.Scanner;
+
+/** 
+ *  Create, compile, and run a program that manages a Patron linked list.
+ *  Learn to familiarize with interfaces and assembling pieces of a program to produce the program.
+*/
+
+public class PatronsList
+{
+    public static void main(String[] args) 
+    {
+        Patron[] patrons =
+        {
+            new Patron(1,&quot;Alice Johnson&quot;, &quot;A123BCX89Z&quot;, &quot;123 Maple St&quot;, &quot;Springfield&quot;, &quot;IL&quot;, 62704),
+            new Patron(2,&quot;Bob Smith&quot;, &quot;B456DFY77X&quot;, &quot;456 Oak Ave&quot;, &quot;Chicago&quot;, &quot;IL&quot;, 60616),
+            new Patron(3,&quot;Charlie Brown&quot;, &quot;C789GHJ65Y&quot;, &quot;789 Pine Rd&quot;, &quot;Naperville&quot;, &quot;IL&quot;, 60540),
+            new Patron(4,&quot;David Wilson&quot;, &quot;D321KLN43W&quot;, &quot;321 Birch Ln&quot;, &quot;Evanston&quot;, &quot;IL&quot;, 60201),
+            new Patron(5,&quot;Emma Davis&quot;, &quot;E654MOP21V&quot;, &quot;654 Cedar St&quot;, &quot;Aurora&quot;, &quot;IL&quot;, 60505),
+            new Patron(6,&quot;Frank Thomas&quot;, &quot;F987QRS09U&quot;, &quot;987 Walnut Ave&quot;, &quot;Rockford&quot;, &quot;IL&quot;, 61107),
+            new Patron(7,&quot;Grace Miller&quot;, &quot;G159TUV87T&quot;, &quot;159 Elm Dr&quot;, &quot;Peoria&quot;, &quot;IL&quot;, 61614),
+            new Patron(8,&quot;Henry Garcia&quot;, &quot;H753WXY65S&quot;, &quot;753 Oakwood Ct&quot;, &quot;Joliet&quot;, &quot;IL&quot;, 60435),
+            new Patron(9,&quot;Ivy Robinson&quot;, &quot;I852ZAB43R&quot;, &quot;852 Maplewood Rd&quot;, &quot;Elgin&quot;, &quot;IL&quot;, 60123),
+            new Patron(10,&quot;Jack Martinez&quot;, &quot;J369CDE21Q&quot;, &quot;369 Sycamore Blvd&quot;, &quot;Waukegan&quot;, &quot;IL&quot;, 60085)
+        };
+        
+        // Patron LinkedList
+        LinkedBag&lt;Patron&gt; patronsList = new LinkedBag&lt;Patron&gt;();
+
+        // Statements that add selected patrons to the Patron List:
+        for (int index = 0; index &lt; patrons.length; index++)
+        {
+            Patron nextPatrons = patrons[index];
+            patronsList.add(nextPatrons); 
+            System.out.println(nextPatrons.toString());
+        } // end for
+
+        System.out.println(&quot;----------------------------------&quot;);
+
+        // Asking the user to select a patron by id
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(&quot;\nEnter a patron id to view details: &quot;);
+        int checkId = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        System.out.println(&quot;Check ID = &quot; + checkId + &quot; patron.\n&quot;);
+
+        // Check if the patron in the list by index
+        if (checkId &gt; patronsList.getCurrentSize() || checkId &lt;= 0)
+        {
+            System.out.println(&quot;Sorry, the patron is undefine.\n&quot;);
+        }
+        else
+        {
+            for (int index = 0; index &lt; patronsList.getCurrentSize()+1; index++)
+            {
+                if (index == checkId) {
+                    Patron checkPatrons = patrons[index-1];
+                    //patronsList.contains(checkPatrons);
+                    System.out.println(checkPatrons.printInfoString());
+                }
+                
+            } // end for
+        }
+        
+        // close scanner
+        scanner.close();
+
+    } // end main
+} // end PatronsList
+
+/*
+1       Alice Johnson
+2       Bob Smith
+3       Charlie Brown
+4       David Wilson
+5       Emma Davis
+6       Frank Thomas
+7       Grace Miller
+8       Henry Garcia
+9       Ivy Robinson
+10      Jack Martinez
+*/
+</code></pre>
+<pre><code>public class Patron 
+{
+     private int    id;
+     private String name;
+     private String library_card_number;
+     private String address;
+     private String city;
+     private String state;
+     private int    zip_code;
+
+
+     public Patron(int id, String name, String library_card_number, String address, String city, String state, int zip_code)
+     {
+     this.id = id;
+     this.name = name;
+     this.library_card_number = library_card_number;
+     this.address = address;
+     this.city = city;
+     this.state = state;
+     this.zip_code = zip_code;
+     }// end constructor
+
+    public int getId() 
+    {
+         return id;
+    } // end getId
+   
+    public String getName() 
+    {
+         return name;
+    } // end getName
+
+    public String toString() 
+    {
+         return id + &quot;\t&quot; + name;
+    } // end toString
+
+    // return patron's information
+    public String printInfoString() 
+    {
+         return &quot;Name: &quot; + name + &quot;\n&quot; + 
+                &quot;Library Card Number: &quot; + library_card_number + &quot;\n&quot; +
+                &quot;Address:&quot; + &quot;\n&quot; + address + &quot;\n&quot; + city + &quot;, &quot; + state + &quot; &quot; + zip_code;
+    } // end printInfoString
+
+} // end Patron
+</code></pre>
+<pre><code>/**
+   An interface that describes the operations of a bag of objects.
+   @author Frank M. Carrano
+   @version 4.0
+*/
+public interface BagInterface&lt;T&gt;
+{
+	/** Gets the current number of entries in this bag.
+	   @return  The integer number of entries currently in the bag. */
+	public int getCurrentSize();
+	
+	/** Sees whether this bag is empty.
+	   @return  True if the bag is empty, or false if not. */
+	public boolean isEmpty();
+	
+	/** Adds a new entry to this bag.
+	   @param newEntry  The object to be added as a new entry.
+	   @return  True if the addition is successful, or false if not. */
+	public boolean add(T newEntry);
+
+	/** Removes one unspecified entry from this bag, if possible.
+           @return  The removed entry if the removal was successful, or null. */
+	public T remove();
+   
+	/** Removes one occurrence of a given entry from this bag.
+           @param anEntry  The entry to be removed.
+           @return  True if the removal was successful, or false if not. */
+        public boolean remove(T anEntry);
+	
+	/** Removes all entries from this bag. */
+	public void clear();
+	
+	/** Counts the number of times a given entry appears in this bag.
+	   @param anEntry  The entry to be counted.
+	   @return  The number of times anEntry appears in the bag. */
+	public int getFrequencyOf(T anEntry);
+	
+	/** Tests whether this bag contains a given entry.
+	   @param anEntry  The entry to locate.
+	   @return  True if the bag contains anEntry, or false if not. */
+	public boolean contains(T anEntry);
+   
+	/** Retrieves all entries that are in this bag.
+	   @return  A newly allocated array of all the entries in the bag.
+            Note: If the bag is empty, the returned array is empty. */
+	public T[] toArray();
+
+} // end BagInterface
+</code></pre>
+<pre><code>public final class LinkedBag&lt;T&gt; implements BagInterface&lt;T&gt;
+{
+    Node firstNode;
+    int numberOfEntries;
+
+    // Simple constructor
+    public LinkedBag()
+    {
+        firstNode = null;
+        numberOfEntries = 0;
+    } // end default constructor
+
+    /** Gets the number of entries currently in this bag.
+    @return  The integer number of entries currently in the bag. */
+    public int getCurrentSize()
+    {
+        return numberOfEntries;
+    }  // end
+    
+    /** Sees whether this bag is empty.
+    @return True if the bag is empty, false otherwise.
+    */
+    public boolean isEmpty()
+    {
+        return firstNode == null;
+    }  // end
+
+    /** Adds a new entry to this bag.
+        @param newEntry  The object to be added as a new entry.
+        @return  true. */
+    public boolean add(T newEntry)
+    {
+        Node newNode = new Node (newEntry);
+        newNode.next = firstNode;
+        firstNode = newNode;
+        ++numberOfEntries;
+        return true;
+    }  // end
+
+    /** Removes one unspecified entry from this bag, if possible.
+    @return  Either the removed entry, if the removal
+    was successful, or null. */
+    public T remove()
+    {
+        T result = null;
+        if (firstNode != null)
+        {
+            result = firstNode.data;
+            firstNode = firstNode.next;
+            --numberOfEntries;    
+        }
+        return result;
+    }  // end
+
+    /**  Locates a given entry within this bag.
+    @param anEntry  The entry to be located.
+    @return  A reference to the node if located, or null otherwise. */
+    private Node getReferenceTo (T anEntry)
+    {
+        T tempEntry;
+        Node currentNode = firstNode;
+        boolean found = false;
+        while (!found &amp;&amp; currentNode != null)
+        {
+            tempEntry = currentNode.data;
+            if (anEntry.equals (tempEntry))
+               found = true;
+            else
+               currentNode = currentNode.next;
+        }
+        return currentNode;
+    }
+   
+    /** Removes one occurrence of a given entry from this bag.
+    @param anEntry  The entry to be removed.
+    @return  True if the removal was successful, or false otherwise. */
+    public boolean remove(T anEntry)
+    {
+        boolean result = false;
+        Node currentNode = getReferenceTo (anEntry);
+        if (currentNode != null)
+        {
+            currentNode.data = firstNode.data;
+            firstNode = firstNode.next;
+            --numberOfEntries;
+            result = true;
+        }
+        return result;
+        
+    }  // end
+
+    /** Removes all entries from this bag. */
+    public void clear()
+    {
+        while (!isEmpty())
+          {
+              remove ();
+          }
+      numberOfEntries = 0;
+    }  // end
+
+    /** Counts the number of times a given entry appears in this bag.
+    @param anEntry  The entry to be counted.
+    @return  The number of times anEntry appears in the bag. */
+    public int getFrequencyOf(T anEntry)
+    {
+        Node currentNode = firstNode;
+        int frequency = 0;
+        while (currentNode != null)
+        {
+            if (anEntry.equals (currentNode.data))
+               ++frequency;
+            currentNode = currentNode.next;
+        }
+        return frequency;
+    }  // end
+
+    /** Tests whether this bag contains a given entry.
+    @param anEntry  The entry to locate.
+    @return  True if the bag contains anEntry, or false otherwise. */
+    public boolean contains(T anEntry)
+    {
+        Node currentNode = getReferenceTo (anEntry);
+        return !(currentNode == null);
+    }  // end
+
+    /** Retrieves all entries that are in this bag.
+    @return  A newly allocated array of all the entries in this bag. */
+    public T[] toArray()
+    {
+        @SuppressWarnings (&quot;unchecked&quot;)
+        T[] result = (T[]) new Object[numberOfEntries];
+        int index = 0;
+        Node currentNode = firstNode;
+        while (currentNode != null)
+        {
+            result [index] = currentNode.data;
+            ++index;
+            currentNode = currentNode.next;
+        }
+        return result;
+    }
+
+private class Node
+{
+    private T data;
+    private Node next;
+
+//  Two contructors.
+    private Node (T dataPortion)
+    {
+        this (dataPortion, null);
+    }
+
+    private Node (T dataPortion, Node nextNode)
+    {
+        data = dataPortion;
+        next = nextNode;   
+    }
+    
+    public T getData()
+    {
+        return data;
+    }
+
+}
+} // end LinkedBag
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#arraylist">ArrayList</a></li>
+<li><a href="#linkedlist">LinkedList</a>
+<ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhaoq0901.github.io/post/object-oriented-programming-with-c/">
+              <h3 class="post-title">
+                Object-oriented programming with C++
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

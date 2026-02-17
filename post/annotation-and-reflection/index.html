@@ -1,0 +1,630 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Annotation &amp; Reflection | Qian</title>
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1771370411468">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Annotation &amp; Reflection | Qian - Atom Feed" href="https://zhaoq0901.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="What is Reflection?
+public class Re01 {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuch..." />
+    <meta name="keywords" content="Java" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhaoq0901.github.io">
+  <img class="avatar" src="https://zhaoq0901.github.io/images/avatar.png?v=1771370411468" alt="">
+  </a>
+  <h1 class="site-title">
+    Qian
+  </h1>
+  <p class="site-description">
+    Lack of Sleep
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/qians-resume" class="menu">
+          Résumé
+        </a>
+      
+    
+      
+        <a href="/post/cv-of-failures" class="menu">
+          CV of Failures
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/zhaoq0901" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Annotation &amp; Reflection
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-05-31
+              </span>
+              <span>
+                10 min read
+              </span>
+              
+                <a href="https://zhaoq0901.github.io/tag/PpslUR7IvK/" class="post-tag">
+                  # Java
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h3 id="what-is-reflection">What is Reflection?</h3>
+<pre><code>public class Re01 {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, SecurityException {
+        // Use reflection to get the Class object of a class
+        // Normally: create a class -&gt; new -&gt; get the class object
+        // Reflection: class object -&gt; reflection -&gt; access internal information of the class
+
+        // Method 1: Class.forName();
+        Class&lt;?&gt; c1 = Class.forName(&quot;AnnotationReflection.User&quot;);
+        System.out.println(c1);
+
+        // Method 2: Get class through an object
+        User student = new Student(); // Parent class reference pointing to a child class object
+        System.out.println(&quot;Amy is &quot; + student.name);
+        Class&lt;?&gt; c2 = student.getClass();
+        System.out.println(c2);
+
+        // Method 3: Use the class name directly
+        Class&lt;?&gt; c3 = Student.class;
+        System.out.println(c3);
+
+        // Method 4: All primitive wrapper classes have a TYPE property
+        Class&lt;?&gt; c4 = Integer.TYPE;
+        System.out.println(c4);
+
+        // Get the superclass type
+        Class&lt;?&gt; c5 = c2.getSuperclass();
+        System.out.println(c5);
+
+        /*
+         * A class has only one Class object in memory
+         * Once a class is loaded, its entire structure is encapsulated in the Class object
+         */
+        // System.out.println(c1.hashCode());
+        // System.out.println(c2.hashCode());
+        // System.out.println(c3.hashCode());
+        // System.out.println(c4.hashCode());
+        // System.out.println(c5.hashCode());
+    }
+}
+
+// Entity class: POJO, entity
+class User {
+
+    public String name;
+
+    // No-argument constructor
+    public User() {
+    }
+
+    // Parameterized constructor
+    public User(String name) {
+        this.name = name;
+    }
+}
+
+// Subclass
+class Student extends User {
+
+    private int age;
+    private String id;
+    public String teacher;
+
+    public Student() {
+        this.name = &quot;AA&quot;;
+    }
+
+    public Student(int age, String id, String teacher) {
+        System.out.println(&quot;age = &quot; + age);
+        System.out.println(&quot;id = &quot; + id);
+        System.out.println(&quot;teacher = &quot; + teacher);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+}
+</code></pre>
+<h3 id="get-class-properties-and-methods">Get class properties and methods</h3>
+<pre><code>import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class Re02 {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, SecurityException {
+        
+        // Create Class object
+        Class&lt;?&gt; c6 = Class.forName(&quot;AnnotationReflection.Student&quot;);
+        
+        // Field[] fields = c6.getFields(); // .getFields() can only find public attributes
+
+        Field[] declaredFields = c6.getDeclaredFields(); // .getDeclaredFields() finds all attributes
+        for (Field field : declaredFields) {
+            System.out.println(field);
+        }
+
+        // Get class methods
+
+        // The second parameter specifies the method parameters, used for distinguishing overloads
+        // Method getAge = c6.getDeclaredMethod(&quot;getAge&quot;, null); // Shows warning
+        Method setAge = c6.getDeclaredMethod(&quot;setAge&quot;, int.class);
+        // System.out.println(getAge);
+        System.out.println(setAge);
+    }
+}
+</code></pre>
+<h3 id="creating-objects-via-reflection">Creating objects via reflection</h3>
+<pre><code>import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class Re03 {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, 
+            IllegalAccessException, IllegalArgumentException, InvocationTargetException, 
+            NoSuchMethodException, SecurityException, NoSuchFieldException {
+        
+        // Get the Class object of the class
+        Class&lt;?&gt; c1 = Class.forName(&quot;AnnotationReflection.Student&quot;);
+
+        // Construct an object
+
+        // Cast to Student class
+        // Student instance1 = (Student)c1.getDeclaredConstructor().newInstance(); // Essentially calls the no-arg constructor
+        // System.out.println(instance1);
+
+        // Create object using constructor
+        Constructor&lt;?&gt; declaredConstructor = c1.getDeclaredConstructor(int.class, String.class, String.class);
+        Student instance2 = (Student) declaredConstructor.newInstance(1, &quot;A&quot;, &quot;B&quot;);
+
+        // Student instance2 = (Student)c1.getDeclaredConstructor(int.class, String.class, String.class).newInstance(1,&quot;A&quot;,&quot;B&quot;);
+        System.out.println(instance2);
+
+        // Call a regular method via reflection
+        Student instance3 = (Student)c1.newInstance();
+        // Get method via reflection
+        Method setAgeMethod = c1.getDeclaredMethod(&quot;setAge&quot;, int.class);
+
+        // invoke: activate
+        // (object, value to pass to method)
+        setAgeMethod.invoke(instance3, 20);
+        System.out.println(instance3.getAge());
+
+        /*
+         * Directly calling instance3.setAge() would hard-code it into your program
+         * This reflective approach allows passing in arbitrary methods and arguments at runtime
+         */
+
+        // Access and modify a field via reflection
+        Student instance4 = (Student)c1.newInstance();
+        Field ageField = c1.getDeclaredField(&quot;age&quot;);
+
+        ageField.setAccessible(true); // Cannot access private fields directly, must disable access checks
+        ageField.set(instance4, 22);
+        System.out.println(instance4.getAge());
+    }
+}
+</code></pre>
+<h3 id="test-execution-efficiency">Test execution efficiency</h3>
+<pre><code>import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class Re04 {
+
+    // Normal method call
+    public void test01() {
+
+        Student student = new Student();
+
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i &lt; 100000000; i++) {
+            student.getId();
+        }
+        long endTime = System.currentTimeMillis();
+
+        System.out.println(&quot;Normal call running time: &quot; + (endTime - startTime) + &quot;ms&quot;);
+    }
+
+    // Method call using reflection
+    public void test02() throws NoSuchMethodException, SecurityException,
+            IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+        Student student = new Student();
+        Class&lt;?&gt; c1 = student.getClass();
+
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(student);
+        }
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println(&quot;Reflective call (no access override) running time: &quot; + (endTime - startTime) + &quot;ms&quot;);
+    }
+
+    // Method call using reflection with access override
+    public void test03() throws NoSuchMethodException, SecurityException,
+            IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+        Student student = new Student();
+        Class&lt;?&gt; c1 = student.getClass();
+
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;);
+
+        // Allow access to private/protected methods
+        getId.setAccessible(true);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(student);
+        }
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println(&quot;Reflective call (with access override) running time: &quot; + (endTime - startTime) + &quot;ms&quot;);
+    }
+
+    public static void main(String[] args) throws NoSuchMethodException, SecurityException,
+            IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+        Re04 benchmark = new Re04();
+        benchmark.test01();
+        benchmark.test02();
+        benchmark.test03();
+    }
+}
+</code></pre>
+<h3 id="demonstrating-how-to-use-reflection-to-retrieve-generic-type-information">Demonstrating how to use reflection to retrieve generic type information</h3>
+<pre><code>import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
+
+public class Re05 {
+
+    // Method with generic parameters
+    public void test01(Map&lt;String, User&gt; map, List&lt;User&gt; list) {
+        System.out.println(&quot;test01&quot;);
+    }
+
+    // Method with a generic return type
+    public Map&lt;String, User&gt; test02() {
+        System.out.println(&quot;test02&quot;);
+        return null;
+    }
+
+    public static void main(String[] args) throws NoSuchMethodException, SecurityException {
+        // Get method test01
+        Method method = Re05.class.getMethod(&quot;test01&quot;, Map.class, List.class);
+
+        // Get parameter types with generics
+        Type[] genericParameterTypes = method.getGenericParameterTypes();
+        for (Type paramType : genericParameterTypes) {
+            System.out.println(&quot;#&quot; + paramType);
+            // Output:
+            // #java.util.Map&lt;java.lang.String, AnnotationReflection.User&gt;
+            // #java.util.List&lt;AnnotationReflection.User&gt;
+
+            // If the type is parameterized, get its actual type arguments (e.g., &lt;String, User&gt;)
+            if (paramType instanceof ParameterizedType) {
+                Type[] actualTypeArguments = ((ParameterizedType) paramType).getActualTypeArguments();
+
+                for (Type arg : actualTypeArguments) {
+                    System.out.println(arg);
+                    // Output:
+                    // class java.lang.String
+                    // class AnnotationReflection.User
+                }
+            }
+        }
+
+        // Get method test02
+        Method method2 = Re05.class.getMethod(&quot;test02&quot;);
+
+        // Get return type with generics
+        Type genericReturnType = method2.getGenericReturnType();
+
+        // If return type is parameterized, get its actual type arguments
+        if (genericReturnType instanceof ParameterizedType) {
+            Type[] actualTypeArguments = ((ParameterizedType) genericReturnType).getActualTypeArguments();
+
+            for (Type arg : actualTypeArguments) {
+                System.out.println(arg);
+                // Output:
+                // class java.lang.String
+                // class AnnotationReflection.User
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="custom-annotation-usage-demo">Custom annotation usage demo</h3>
+<pre><code>import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+public class An extends Object {
+
+    // Annotation can take values explicitly. If there's no default, you *must* provide a value.
+    @MyAnnotation(name = &quot;Amy&quot;)
+    public void test() {}
+
+    // When the annotation has only one parameter named 'value', you can omit the key.
+    @MyAnnotation2(&quot;Amy&quot;)
+    public void test2() {}
+}
+
+// Define a custom annotation
+@Target({ElementType.TYPE, ElementType.METHOD}) // Where this annotation can be used (classes, methods)
+@Retention(RetentionPolicy.RUNTIME) // Annotation is retained at runtime and can be accessed via reflection
+@interface MyAnnotation {
+    // Annotation elements: defined as methods without a body
+    String name();
+
+    int id() default -1; // Default value of -1 can be used to indicate &quot;not provided&quot;
+}
+
+// Another example of custom annotation
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyAnnotation2 {
+    String value(); // If the annotation has only one element called &quot;value&quot;, you can omit the name when using it
+}
+</code></pre>
+<p>Practice using reflection to obtain annotations</p>
+<pre><code>import java.lang.annotation.Annotation;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.Field;
+
+public class Re06An02 {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, SecurityException {
+
+        // 1. Create the target class
+        Class&lt;?&gt; c1 = Class.forName(&quot;AnnotationReflection.Person&quot;);
+
+        // 2. Use reflection to get annotations
+        Annotation[] annotations = c1.getAnnotations();
+        for (Annotation annotation : annotations) {
+            System.out.println(annotation);
+        }
+
+        // 3. Get the value of the annotation's &quot;value&quot; attribute
+        Table table = (Table)c1.getAnnotation(Table.class);
+        String value = table.value();
+        System.out.println(value);
+
+        // 4. Get a specific field's annotation from the class
+        Field f1 = c1.getDeclaredField(&quot;name&quot;);
+        field annotation = f1.getAnnotation(field.class);
+        System.out.println(annotation.columnName());
+        System.out.println(annotation.type());
+        System.out.println(annotation.length());
+    }
+}
+
+// Annotation for class name
+@Target(ElementType.TYPE) // Where it is applied
+@Retention(RetentionPolicy.RUNTIME) // When it is retained (runtime)
+@interface Table {
+    String value();
+}
+
+// Annotation for fields
+@Target(ElementType.FIELD) // Where it is applied
+@Retention(RetentionPolicy.RUNTIME)
+@interface field {
+    String columnName();
+    String type();
+    int length();
+}
+
+// Target class with field annotations
+@Table(&quot;db_student&quot;)
+class Person {
+
+    @field(columnName = &quot;db_age&quot;, type = &quot;int&quot;, length = 10)
+    private int age;
+    @field(columnName = &quot;db_id&quot;, type = &quot;int&quot;, length = 10)
+    private int id;
+    @field(columnName = &quot;db_name&quot;, type = &quot;varchar&quot;, length = 3)
+    private String name;
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public String toString() {
+        return &quot;person [age=&quot; + age + &quot;, id=&quot; + id + &quot;, name=&quot; + name + &quot;]&quot;;
+    }
+    }
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-reflection">What is Reflection?</a></li>
+<li><a href="#get-class-properties-and-methods">Get class properties and methods</a></li>
+<li><a href="#creating-objects-via-reflection">Creating objects via reflection</a></li>
+<li><a href="#test-execution-efficiency">Test execution efficiency</a></li>
+<li><a href="#demonstrating-how-to-use-reflection-to-retrieve-generic-type-information">Demonstrating how to use reflection to retrieve generic type information</a></li>
+<li><a href="#custom-annotation-usage-demo">Custom annotation usage demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhaoq0901.github.io/post/interpreted-with-object-oriented-programming-part-2/">
+              <h3 class="post-title">
+                Interpreted with Object-Oriented Programming - Part 2
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

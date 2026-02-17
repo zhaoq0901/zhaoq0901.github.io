@@ -1,0 +1,3484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhaoq0901.github.io</id>
+    <title>Qian</title>
+    <updated>2026-02-17T23:20:13.579Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://zhaoq0901.github.io"/>
+    <link rel="self" href="https://zhaoq0901.github.io/atom.xml"/>
+    <subtitle>Lack of Sleep</subtitle>
+    <logo>https://zhaoq0901.github.io/images/avatar.png</logo>
+    <icon>https://zhaoq0901.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2026, Qian</rights>
+    <entry>
+        <title type="html"><![CDATA[TACC ACSC 2025: Identifying Engel's Law around the U.S.]]></title>
+        <id>https://zhaoq0901.github.io/post/tacc-acsc-2025-identifying-engels-law-around-the-us/</id>
+        <link href="https://zhaoq0901.github.io/post/tacc-acsc-2025-identifying-engels-law-around-the-us/">
+        </link>
+        <updated>2025-07-25T05:11:03.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zhaoq0901.github.io/post-images/1759864826374.jpg" alt="" loading="lazy"></figure>
+<h1 id="what-is-engels-law">What is Engel's Law?</h1>
+<p><strong><code>Engel's Law</code>: As household's income , the % of income spent on food will decrease, although the amount of food expenditure may increase.</strong></p>
+<p>This means when people solve their basic living cost, they will have more spending on other goods and services, such as education and recreation.</p>
+<p><code>Engel's Coefficient</code> = Food Expenditure / Household Income</p>
+<ul>
+<li>Close to 1:
+<ul>
+<li>The family spent <strong>most</strong> of their income on food</li>
+</ul>
+</li>
+<li>Close to 0:
+<ul>
+<li>The family spent <strong>less</strong> of their income on food</li>
+</ul>
+</li>
+</ul>
+<h2 id="why-should-we-care">Why should we care?</h2>
+<p>By calculating the Engel's coefficient, we can know the familiy's living standard. If their coefficient is high, that means they are struggling with food accessibility. Therefore, they lack money for other services, such as education and healthcare.</p>
+<h1 id="research-question">Research Question</h1>
+<p><strong>What is the relationship between <code>Household Income</code> and <code>Food Expenditure</code> in the U.S. from 2015 to 2019?</strong></p>
+<p>Why <code>Household Income</code>?</p>
+<ul>
+<li>Since indiviude may have different eating habits, such as vegetarian or anorexia, those will the factor to affect the result.</li>
+</ul>
+<p>What is <code>Food Expenditure</code>?</p>
+<ul>
+<li>The amount of money spent on food (Food-at-home &amp; Food-away-from-home)
+<ul>
+<li>Food-at-home (FAH):
+<ul>
+<li>The food and beverages purchased from grocery stores, supermarkets, convenience stores, and other retail outlets for consumption at home.</li>
+</ul>
+</li>
+<li>Food-away-from-home (FAFH):
+<ul>
+<li>All meals and snacks purchased from restaurants, cafes, fast-food outlets, and other establishments where food is prepared and consumed outside the home.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Why <code>2015 to 2019</code>?</p>
+<ul>
+<li>I want to do the researching in 5 years period. However, due to the pendamic happend, the 2020 data of household income is missing, and the food expenditure data weren't update after 2023.</li>
+</ul>
+<h1 id="methodology">Methodology</h1>
+<ul>
+<li>Dataset:
+<ul>
+<li><code>US Census</code>: Household Income American Community Survey (ACS) 1-year estimate</li>
+<li><code>USDA</code>: Food Expenditure Series</li>
+<li><code>USDA</code>: Current Population Survey (CPS) Food Security Supplement</li>
+</ul>
+</li>
+<li>System and tool:
+<ul>
+<li><code>Stampede3</code> provide by Texas Advanced Computing Center (TACC)</li>
+<li><code>Python3</code> with Jupyter Notebook</li>
+</ul>
+</li>
+</ul>
+<h1 id="data-vistulization-analysis">Data vistulization &amp; analysis</h1>
+<h2 id="engel-coefficient-by-state-2015-2019">Engel Coefficient by State (2015-2019)</h2>
+<figure data-type="image" tabindex="2"><img src="https://zhaoq0901.github.io/post-images/1753585245104.png" alt="" loading="lazy"></figure>
+<p>This geographic heatmap indicates families' Engel coefficients by states. <strong>The color gets darker when families from that state have an Engel coefficient close to 1</strong>, which means they are struggling with basic food needs.</p>
+<h2 id="engel-coefficient-vs-household-income-top-10-states-by-engel-coefficient">Engel Coefficient vs. Household Income (Top 10 States by Engel Coefficient)</h2>
+<figure data-type="image" tabindex="3"><img src="https://zhaoq0901.github.io/post-images/1753585773363.png" alt="" loading="lazy"></figure>
+<p><code>Expectation</code>: Engel Coefficient (%) is high because the family has less household income</p>
+<p>Low income family needs to put more money on food.</p>
+<p><strong>However, there is an outlier: California.</strong></p>
+<figure data-type="image" tabindex="4"><img src="https://zhaoq0901.github.io/post-images/1753586129185.png" alt="" loading="lazy"></figure>
+<p>Consistently from 2015 to 2019: <em>although people from California can make a good amount of money, there are still a lot of families that are struggling with food security.</em></p>
+<h2 id="food-security-in-ca">Food Security In CA</h2>
+<figure data-type="image" tabindex="5"><img src="https://zhaoq0901.github.io/post-images/1753586248230.png" alt="" loading="lazy"></figure>
+<center>⬆Definition of Food Security</center>
+<figure data-type="image" tabindex="6"><img src="https://zhaoq0901.github.io/post-images/1753586299263.png" alt="" loading="lazy"></figure>
+<p><u>The documentation of the Current Population Survey (CPS) states that the data represents 20% of the California population. </U></p>
+<p>Therefore, 20% of California's population experiences food insecurity.</p>
+<p>Among these families, 90% of them are receiving food from the food distribution program or are on the <em>Supplemental Nutrition Assistance Program (SNAP).</em></p>
+<p>The rest 10% are hard to access nutritious food, and even skip meals every day.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The data analysis mostly supports Engel's Law.</p>
+<ul>
+<li>Higher household income → lower % of income spent on food</li>
+<li>Familes with higher household income can inveset their money on other supplement goods or services beyong the basic needs.</li>
+</ul>
+<p>However, under certain circumstances (such as CA), Engel's Law may not hold true. The potential reason behind this could be:</p>
+<ul>
+<li>Food prices</li>
+<li>Population density</li>
+<li>Distance from grocery stores</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[nEXO SIREN 2025: Ray Tracker]]></title>
+        <id>https://zhaoq0901.github.io/post/nexo-siren-2025-ray-tracker/</id>
+        <link href="https://zhaoq0901.github.io/post/nexo-siren-2025-ray-tracker/">
+        </link>
+        <updated>2025-05-29T00:52:42.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>One line objective</strong>: A rotating dual-detector system using Cosmic Watch devices to minimize false coincidences and analyze cosmic ray detection efficiency through synchronized motion, Python programming, and data analysis.</p>
+<h1 id="key-terms">Key Terms:</h1>
+<ul>
+<li>
+<p><strong>Cosmic Rays</strong>: Tiny, high-energy particles from space that hit Earth all the time. They come from powerful events like exploding stars. When they hit our atmosphere, they break apart and create smaller particles—some of which reach the ground. Scientists study them to learn more about space and the universe.</p>
+</li>
+<li>
+<p><strong>Cosmic watch</strong>: A compact particle detector that measures muons, which are the particles created when cosmic rays hit Earth's atmosphere. It uses a light-sensitive sensor and electronics to count each muon that passes through, helping researchers and students study cosmic radiation and its behavior.</p>
+</li>
+</ul>
+<h1 id="observation-question">Observation &amp; Question</h1>
+<ul>
+<li>Cosmic ray muons arrive more frequently from overhead due to atmospheric shielding.</li>
+<li><strong>How does the orientation angle of the detector affect muon detection rate?</strong></li>
+</ul>
+<h1 id="3d-printed-dual-axis-tracker-motors-setup">3D-Printed Dual Axis Tracker &amp; Motors Setup</h1>
+<figure data-type="image" tabindex="1"><img src="https://zhaoq0901.github.io/post-images/1753070586489.png" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>Based on a solar tracker design modified for added stability and extended range of motion</p>
+</li>
+<li>
+<p>Allows for 360° horizontal and 180° vertical rotation</p>
+</li>
+<li>
+<p>Modular design to allow easy setup and adjustment</p>
+</li>
+<li>
+<p>3D printed in PLA filament</p>
+</li>
+</ul>
+<p><img src="https://zhaoq0901.github.io/post-images/1753070764633.png" alt="" loading="lazy"><br>
+<em>Tinkercad Design</em></p>
+<p><img src="https://zhaoq0901.github.io/post-images/1753070742312.png" alt="" loading="lazy"><br>
+<em>Setup</em></p>
+<p>Our setup includes two SG90 servo motors: one controls the left and right (horizontal) movement of the Cosmic Watch, while the other controls the up and down (vertical) movement.</p>
+<h1 id="data-communication-between-arduinos">Data Communication Between Arduinos</h1>
+<figure data-type="image" tabindex="2"><img src="https://zhaoq0901.github.io/post-images/1753071207533.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Collation</strong><br>
+<em>Collating &amp; Sending data</em></li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://zhaoq0901.github.io/post-images/1753071218864.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Rotation</strong><br>
+<em>Rotating &amp; Finding the best position</em></li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://zhaoq0901.github.io/post-images/1753071236778.png" alt="" loading="lazy"></figure>
+<ul>
+<li><em>No SD card</em></li>
+<li>Calculating Data by Arduinos</li>
+</ul>
+<h1 id="applying-rotation-in-real-world">Applying Rotation in Real-World</h1>
+<ul>
+<li>
+<p>Stop at each position for 30 seconds to examine the radiation counts</p>
+</li>
+<li>
+<p>Identify the position with the highest count to determine the best signal reception</p>
+</li>
+<li>
+<p>Return to the best position</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://zhaoq0901.github.io/post-images/1753071666287.png" alt="" loading="lazy"></figure>
+<p><em>The Video of Ray Tracker Ratation:</em></p>
+<p><strong>Please watch our final presentation on Youtube</strong></p>
+<h1 id="final-presentation-on-youtube">Final Presentation on Youtube</h1>
+<p><em>Interesting in more Project Detail and the challenges we were facing? Press play to see the video!</em></p>
+<figure data-type="image" tabindex="6"><a href="https://youtu.be/vpxcIna0-E0?si=ZRXJihSO7jPULFVa&amp;t=3233"><img src="https://markdown-videos-api.jorgenkh.no/youtube/vpxcIna0-E0?si=ZRXJihSO7jPULFVa&amp;t=3233" alt="" loading="lazy"></a></figure>
+<h1 id="future-improvements">Future Improvements</h1>
+<ul>
+<li>
+<p>Stronger motors capable of 360° positioning and dual cosmic watch</p>
+</li>
+<li>
+<p>Use Raspberry pi (mini-computer) that has stronger processing power to handle calculation (more angles and positions &amp; longer testing cycles to allow more data)</p>
+</li>
+<li>
+<p>Smaller and more stable dual axis tracker</p>
+</li>
+<li>
+<p>Receive SiMPs Voltage (how strong the muon hit was) after adjust to the best position</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DataJam 2025: How Household Income Shapes Food Insecurity from 2010 - 2019 in CA?]]></title>
+        <id>https://zhaoq0901.github.io/post/datajam-2025/</id>
+        <link href="https://zhaoq0901.github.io/post/datajam-2025/">
+        </link>
+        <updated>2025-03-11T14:24:08.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="key-term">Key Term</h1>
+<ul>
+<li><strong>Food insecurity:</strong> <em>the situation where people lack secure access to sufficient amounts of safe and nutritious food for normal growth and development and an active, healthy life.</em></li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://zhaoq0901.github.io/post-images/1753065050260.png" alt="" loading="lazy"></figure>
+<h1 id="introduction">Introduction</h1>
+<ul>
+<li>
+<p>1 in 5 Californians (~8.8 million people) face food insecurity</p>
+</li>
+<li>
+<p>Median household income (MHI) is a key factor influencing food insecurity</p>
+</li>
+<li>
+<p>Understanding the link between income and food access is critical for effective policy</p>
+</li>
+</ul>
+<h1 id="hypothesis">Hypothesis</h1>
+<p><strong>We assume an inverse relationship between median household income and food insecurity rates, meaning that higher median household incomes correspond to lower food insecurity rates.</strong></p>
+<h1 id="what-are-our-datasets">What are our datasets?</h1>
+<figure data-type="image" tabindex="2"><img src="https://zhaoq0901.github.io/post-images/1753065540544.png" alt="" loading="lazy"></figure>
+<ul>
+<li>Feeding America. &quot;Map the Meal Gap,&quot; 2010~2022</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://zhaoq0901.github.io/post-images/1753065575122.png" alt="" loading="lazy"></figure>
+<ul>
+<li>U.S. Census Bureau. &quot;S1903 — Median Income In the Past 12 Months,&quot; 2010~2019</li>
+</ul>
+<h1 id="time-and-location">Time and Location</h1>
+<ul>
+<li><strong>Congressional Districts</strong>
+<ul>
+<li>reviewed every two years</li>
+<li>updated every ten years</li>
+<li>consistent and relevant</li>
+</ul>
+</li>
+<li><strong>2010 - 2019</strong>
+<ul>
+<li>Data Consistency</li>
+<li>Higher Accuracy (Avoid Pandemic)</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://zhaoq0901.github.io/post-images/1753065834665.png" alt="" loading="lazy"></figure>
+<h1 id="data-visualization">Data Visualization</h1>
+<h2 id="analyzed-latest-dataset-2019-mhi-vs-fir-with-geographical-heatmap">Analyzed latest dataset (2019 MHI vs. FIR) with geographical heatmap</h2>
+<p><img src="https://zhaoq0901.github.io/post-images/1753066419970.png" alt="" loading="lazy"><br>
+<em>The Median Household Income in CA using data from the year 2019.</em></p>
+<p><img src="https://zhaoq0901.github.io/post-images/1753066431272.png" alt="" loading="lazy"><br>
+<em>The Food Insecurity Rate in CA using data from the year 2019.</em></p>
+<ul>
+<li><strong>They highlight that Congressional District 18 (which includes San Jose, Los Altos, Menlo Park) have higher MHI and lower FIR (left heat map  shows dark blue, while right heat map is light yellow for low FIR), while Congressional District 16 (which includes Merced, Los Banos, Fresno) (16.6% high food insecurity rate) shows the same inverse trend, but in the sense this district has a high food insecurity rate due to low median household income.</strong></li>
+</ul>
+<h2 id="linear-regression-for-2010-to-2019">Linear Regression for 2010 to 2019</h2>
+<figure data-type="image" tabindex="5"><img src="https://zhaoq0901.github.io/post-images/1753066602517.webp" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p><strong>Across the 10 years we analyzed, all showed a negative correlation / inverse relationship between Median Household Income and Food Insecurity Rate.</strong></p>
+</li>
+<li>
+<p><strong>Compare to other years, the rinear regression lines for 2014 to 2015 and 2016 to 2017 are NOT so steep.</strong></p>
+</li>
+</ul>
+<h3 id="the-table-of-r-values">The Table of R-values</h3>
+<ul>
+<li>
+<p><strong>R value:</strong> The correlation coefficient for measuring the strength and direction of a linear relationship between two variables.</p>
+</li>
+<li>
+<p><strong>R² value:</strong> The coefficient of determination.</p>
+<ul>
+<li>It close to <code>1</code> when there is a strong fit of the model to the data.</li>
+<li>It close to <code>0</code> when there is a weak fit of the model to the data.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Time Period</th>
+<th>Correlation Coefficient (R)</th>
+<th>Coefficient of Determination (R²)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2010 to 2011</td>
+<td>-0.8711499938023111</td>
+<td>0.7589023117017665</td>
+</tr>
+<tr>
+<td>2012 to 2013</td>
+<td>-0.6861278694607723</td>
+<td>0.4707714532507783</td>
+</tr>
+<tr>
+<td>2014 to 2015</td>
+<td><strong>-0.270339500186141</strong></td>
+<td>0.07308344536089229</td>
+</tr>
+<tr>
+<td>2016 to 2017</td>
+<td><strong>-0.2789690803395247</strong></td>
+<td>0.0778237477854804</td>
+</tr>
+<tr>
+<td>2018 to 2019</td>
+<td>-0.7575042686836351</td>
+<td>0.5738127170739289</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>All 5 time periods do have negative R-values, which indicates a negative linear relationship, where one variable tends to increase as the other decreases.</strong></p>
+</li>
+<li>
+<p><strong>However, the 2014 through 2017 time periods have R-values that are close to 0, so not as strong of an inverse relationship. In addtion, the R² are showing the linear regression lines can't describe the data very well.</strong></p>
+</li>
+</ul>
+<h1 id="possible-reason-for-outliers">Possible Reason for Outliers</h1>
+<p>The R value close to 0 indicates the inverse relationship between MHI and FIR is weak. In addition, the R^2 values are also close to 0, suggesting that the linear regression lines lack reliability in explaining the data. <strong>This is likely due to the drought that happens between 2014 to 2017.</strong></p>
+<p><img src="https://zhaoq0901.github.io/post-images/1753068628968.png" alt="" loading="lazy"><br>
+<em>California Drought Maps from 2010-2020 provided by Drought.gov</em></p>
+<ul>
+<li><strong>D4 (Exceptional) Drought during 2014 to 2017 in California</strong>
+<ul>
+<li>Impacted agricultural production</li>
+<li>Food is unaffordable for both high-MHI and low-MHI families.</li>
+</ul>
+</li>
+</ul>
+<p>As shown in the graph, the California Drought Maps from the U.S. Drought Monitor, the intensity of drought has four levels. We can see through the x-value that the exceptional drought with other level drought took place during 2014 to 2017 affecte average 50% California land area.</p>
+<p><strong>The drought directly impacted food production rates, making food unaffordable for both high MHI and low MHI families. This explains why the data from 2014 to 2017 deviate from our hypothesis.</strong></p>
+<h1 id="measuring-the-correlation-between-mhi-fir-by-districts">Measuring the Correlation Between MHI &amp; FIR by districts.</h1>
+<figure data-type="image" tabindex="6"><img src="https://zhaoq0901.github.io/post-images/1753069205586.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Red districts</strong> show a strong negative correlation (R close to -1).</li>
+<li><strong>Lighter red and White districts</strong> indicate weaker or no correlation between MHI and FIR.</li>
+<li><strong>Blue districts</strong> show a positive correlation.</li>
+</ul>
+<p>In the last part of our finding, we wanted to examine how strong the relationship was in each district, so we looked at ten years of data for each district and calculated the R-value. <strong>The closer the R-value is to -1, the stronger the negative relationship is.</strong></p>
+<p>As you can see on the heatmap, many districts such as the <code>North Coast</code> and <code>Bay Area</code> are shaded red, meaning they have a strong negative correlation. The white districts, such as those <code>near the eastern state border</code>, show a weaker or no clear relationship. To our surprise, the blue districts such as parts of the <code>San Joaquin Valley</code> show a positive correlation, which is the opposite of what we expected. In these areas, income and food insecurity both go up together.</p>
+<p>For the outliers, we suspect that in blue areas, higher living costs relative to wages and the presence of seasonal and agricultural workers contribute to unexpected positive correlations. In white areas, small populations and economies heavily reliant on tourism make it difficult to find a clear pattern between income and food insecurity.</p>
+<h1 id="conclusion">Conclusion</h1>
+<ul>
+<li>
+<p>We found that <strong>there is a inverse relationship between food insecurity rates and income.</strong></p>
+</li>
+<li>
+<p>As income increases, food insecurity rates tend to decrease.</p>
+</li>
+<li>
+<p>Lower income households are more likely to experience food insecurity.</p>
+</li>
+</ul>
+<h1 id="poster">Poster</h1>
+<figure data-type="image" tabindex="7"><img src="https://zhaoq0901.github.io/post-images/1753069907583.png" alt="" loading="lazy"></figure>
+<h1 id="works-cited">Works Cited</h1>
+<ul>
+<li>
+<p><strong>United States Census Bureau</strong></p>
+<ul>
+<li><em>https://data.census.gov/table/ACSST1Y2019.S1903</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Feeding America</strong></p>
+<ul>
+<li><em>https://www.feedingamerica.org/research/map-the-meal-gap/overall-executive-summary</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Feeding America Food Insecurity Report Briefs</strong></p>
+<ul>
+<li><em>https://www.feedingamerica.org/sites/default/files/2024-05/Map%20the%20Meal%20Gap%202024%20Technical%20Brief.pdf</em></li>
+</ul>
+</li>
+<li>
+<p><strong>National Integrated Drought Information System</strong></p>
+<ul>
+<li><em>https://www.drought.gov/states/california</em></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data structure with Java - Part 2]]></title>
+        <id>https://zhaoq0901.github.io/post/data-structure-with-java-part-2/</id>
+        <link href="https://zhaoq0901.github.io/post/data-structure-with-java-part-2/">
+        </link>
+        <updated>2024-02-20T13:36:16.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="stack">Stack</h1>
+<p>The stack is a linear data structure that is used to store the collection of objects. It is based on <strong>Last-In-First-Out (LIFO)</strong>. Java collection framework provides many interfaces and classes to store the collection of objects.</p>
+<p>##Example</p>
+<ul>
+<li>Create, compile, and run a program that manages a stack.</li>
+<li>Simulated a library returning stack and the book re-shelving process</li>
+</ul>
+<pre><code>public class ReturnBook
+{
+    public static void main(String[] args) 
+    {
+        Book[] books = {
+                        new Book(&quot;Educated&quot;, &quot;Tara Westover&quot;, &quot;9780399590504&quot;),
+                        new Book(&quot;Fight Club&quot;, &quot;Chuck Palahniuk&quot;, &quot;9780805076479&quot;),
+                        new Book(&quot;Wonder&quot;, &quot;R. J. Palacio&quot;, &quot;9780375969027&quot;),
+                        new Book(&quot;Flowers for Algernon&quot;, &quot;Daniel Keyes&quot;, &quot;9787549565115&quot;),
+                        new Book(&quot;Demian&quot;, &quot;Hermann Hesse&quot;, &quot;9787201159096&quot;),
+                    };
+        
+        StackInterface&lt;Book&gt; bookStack = new LinkedStack&lt;Book&gt;();
+      
+        // Statements that returning books to the stack:
+        for (int index = 0; index &lt; books.length; index++)
+        {
+            System.out.println(&quot;Patron returned a book...\n&quot;);
+            Book nextBook = books[index];
+            System.out.println(nextBook.toString());
+            bookStack.push(nextBook); // Add the book to the stack
+
+            // Librarians started re-shelving books after three books have been returned
+            if (index == 2)
+            {
+                System.out.println(&quot;Librarians shelving books...\n&quot;);
+                
+                while (!bookStack.isEmpty())
+                {
+                    Book bookPopped = bookStack.pop(); // Remove the books from the stack
+                    System.out.println(bookPopped.toString());
+                }
+            }
+        } // end for
+
+        // Re-shelver the rest of the books left in the stack
+        System.out.println(&quot;Library is about to close. Librarians shelving the rest of the books...\n&quot;);
+        while (!bookStack.isEmpty())
+        {
+            Book bookPopped = bookStack.pop(); // Remove the rest of the books from the stack
+            System.out.println(bookPopped.toString());
+        }
+
+    } // end main
+} // end ReturnBook
+</code></pre>
+<pre><code>/** A class of books for return.
+*/
+
+public class Book
+{
+    private String title;
+    private String author;
+    private String id;
+
+    public Book(String title, String author, String id) 
+    {
+         this.title = title;        
+         this.author = author;        
+         this.id = id;        
+    } // end constructor
+   
+    // Getters
+    public String getTitle()
+    {
+     return title;
+    }
+
+    public String getAuthor()
+    {
+     return author;
+    }
+
+    public String getId()
+    {
+     return id;
+    }
+   
+    public String toString() 
+    {
+         return &quot;Book Title: &quot; + title + &quot;\n&quot; + &quot;Author: &quot; + author + &quot;\n&quot; + &quot;Book ISBN: &quot; + id + &quot;\n&quot;;
+    } // end toString
+
+} // end Book
+</code></pre>
+<pre><code>import java.util.EmptyStackException;
+/**
+    A class of stacks whose entries are stored in a chain of nodes.
+    @author Frank M. Carrano and Timothy M. Henry
+    @version 4.0
+*/
+public class LinkedStack&lt;T&gt; implements StackInterface&lt;T&gt;
+{
+
+   private Node topNode; // References the first node in the chain
+  
+   public LinkedStack()
+   {
+      topNode = null;
+   } // end default constructor
+
+
+   public void push(T newEntry)
+   {
+      Node newNode = new Node(newEntry);
+      newNode.next = topNode;
+      topNode = newNode;
+   }
+
+
+   public T pop()
+   {
+      T result = topNode.data;
+      topNode = topNode.next;
+      return result;
+   }
+
+
+   public T peek()
+   {
+      return topNode.data;
+   }
+
+
+   public boolean isEmpty()
+   {
+      return topNode == null;
+   }
+
+
+   public void clear()
+   {
+      T tempNode;
+      while (!isEmpty())
+         tempNode = pop ();
+   }
+
+
+   private class Node
+   {
+      private T    data; // Entry in stack
+      private Node next; // Link to next node
+      
+      private Node(T dataPortion)
+      {
+         this(dataPortion, null);
+      } // end constructor
+      
+      private Node(T dataPortion, Node linkPortion)
+      {
+         data = dataPortion;
+         next = linkPortion;
+      } // end constructor
+      
+      private T getData()
+      {
+         return data;
+      } // end getData
+      
+      private void setData(T newData)
+      {
+         data = newData;
+      } // end setData
+      
+      private Node getNextNode()
+      {
+         return next;
+      } // end getNextNode
+      
+      private void setNextNode(Node nextNode)
+      {
+         next = nextNode;
+      } // end setNextNode
+	} // end Node
+} // end LinkedStack
+</code></pre>
+<pre><code>/**
+   An interface for the ADT stack.
+   @author Frank M. Carrano
+   @version 4.0
+*/
+public interface StackInterface&lt;T&gt;
+{
+   /** Adds a new entry to the top of this stack.
+       @param newEntry  An object to be added to the stack. */
+   public void push(T newEntry);
+  
+   /** Removes and returns this stack's top entry.
+       @return  The object at the top of the stack. 
+       @throws  EmptyStackException if the stack is empty before the operation. */
+   public T pop();
+  
+   /** Retrieves this stack's top entry.
+       @return  The object at the top of the stack.
+       @throws  EmptyStackException if the stack is empty. */
+   public T peek();
+  
+   /** Detects whether this stack is empty.
+       @return  True if the stack is empty. */
+   public boolean isEmpty();
+  
+   /** Removes all entries from this stack. */
+   public void clear();
+
+} // end StackInterface
+</code></pre>
+<h1 id="queue">Queue</h1>
+<p>Queue in Java is a linear data structure where you can handle an ordered collection of elements. It follows the <strong>FIFO</strong> principle to add elements from one end and remove them from the other end.</p>
+<h2 id="example">Example</h2>
+<ul>
+<li>Familiarize with queue as used for simulation.</li>
+<li>Simulate patrons performing tasks in the library.</li>
+</ul>
+<pre><code>import java.util.Random;
+
+public class WaitLine
+{
+   private QueueInterface&lt;Patron&gt; line;
+   private int numberOfArrivals;
+   private int numberServed;
+   private int totalTimeWaited;
+   private Patron currentPatron = null;
+
+   public WaitLine()
+   {
+      line = new LinkedQueue&lt;&gt;();
+      reset();
+    } // end default constructor
+
+   /** Simulates a waiting line with one serving agent.
+       @param duration  The number of minutes in the simulation
+       @param arrivalProbability  A real number between 0 and 1, representing
+                                  the probability that a patron arrives at
+                                  a given time*/ 
+   public void simulate(int duration, double arrivalProbability)
+   {
+      int transactionTimeLeft = 0;
+      boolean printed = false;
+      currentPatron = null;
+      Random random = new Random(); // For random number generation
+      String[] reasons = {&quot;Checking out books&quot;, &quot;Getting a library card&quot;, &quot;Paying a fine&quot;};
+
+      for (int clock = 0; clock &lt; duration; clock++)
+      {
+         if (Math.random() &lt; arrivalProbability)
+         {
+            // Set up patron's information
+            String name = &quot;Patron &quot; + (numberOfArrivals + 1);
+                                                         //format(&quot;%07d&quot;, i). 
+                                                         /* &quot;07&quot; means print at least 7 digits
+                                                            and pad with zero if there are less. */
+            String cardNumber = String.format(&quot;%07d&quot;, random.nextInt(9999999));
+            String reason = reasons[random.nextInt(3)]; // Randomly pick one reason
+            
+            int transactionTime = 1;
+
+            // Check every patron's transaction time base on their request.
+            switch (reason) {
+
+               case &quot;Checking out books&quot;:
+               // as many extra clock ticks as books the person will check out
+                  int books = 1 + random.nextInt(5);
+                  transactionTime += books;
+                  break;
+            
+               case &quot;Getting a library card&quot;:
+               // no extra time
+                  break;
+
+               case &quot;Paying a fine&quot;:
+               // one extra clock tick
+                  break;
+            }
+
+            Patron nextArrival = new Patron(clock, transactionTime, name , cardNumber, reason);
+            line.enqueue(nextArrival);
+            numberOfArrivals++;
+            System.out.println(nextArrival + &quot; enters line at time &quot; + clock + &quot;.&quot;);
+         } // end if
+
+         if (transactionTimeLeft &gt; 0)
+            transactionTimeLeft--;
+         else
+         {
+            if (!printed)
+            {
+               if (currentPatron != null)
+               {
+                  System.out.println(&quot; &quot;
+                                     + currentPatron.getNumber()
+                                     + &quot; exits queue at time &quot; + clock + &quot;.&quot;);
+                   printed = true;
+               }
+
+            }
+            if (!line.isEmpty())
+            {
+               //  Process next  in queue
+               currentPatron = line.dequeue();
+               printed = false;
+               transactionTimeLeft = currentPatron.getTransactionTime() - 1;
+               int timeWaited = clock - currentPatron.getArrivalTime();
+               totalTimeWaited += timeWaited;
+               numberServed++;
+               System.out.println(&quot; &quot; + currentPatron.getNumber() +
+                                  &quot; begins service at time &quot; + clock +
+                                  &quot;. Time waited is &quot; + timeWaited + &quot;.&quot;);
+            }
+         } // end if
+      } // end for
+      if (transactionTimeLeft &gt; 0)
+            System.out.println(&quot; &quot; + currentPatron.getNumber() +
+                                  &quot; is still being served but simulation has ended.&quot;);
+      numberServed--;
+
+   } // end simulate
+
+   /** Displays summary results of the simulation. */ 
+   public void displayResults()
+   {
+      System.out.println();
+      System.out.println(&quot;Number served = &quot; + numberServed);
+      System.out.println(&quot;Total time waited = &quot; + totalTimeWaited);
+      double averageTimeWaited = ((double)totalTimeWaited) / numberServed;
+      System.out.format(&quot;Average time waited = %5.2f\n&quot;, averageTimeWaited);
+      int leftInLine = numberOfArrivals - numberServed;
+      System.out.println(&quot;Number left in line = &quot; + leftInLine);
+      if (!line.isEmpty())
+      {
+         System.out.println (&quot;Patron left in line:&quot;);
+         System.out.println (&quot;   &quot; + currentPatron.getNumber());
+         while (!line.isEmpty())
+            {
+            Patron tempPatron = line.dequeue();
+            System.out.println (&quot;   &quot; + tempPatron.getNumber());
+            }
+      }
+   } // end DisplayResults
+
+   /** Initializes the simulation. */ 
+   public final void reset()
+   {
+      line.clear();
+      numberOfArrivals = 0;
+      numberServed = 0;
+      totalTimeWaited = 0;
+   } // end reset
+} // end WaitLine
+</code></pre>
+<pre><code>/**
+   An interface for the ADT queue.   
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 4.0
+*/
+public interface QueueInterface&lt;T&gt;
+{
+  /** Adds a new entry to the back of this queue.
+      @param newEntry  An object to be added. */
+  public void enqueue(T newEntry);
+  
+  /** Removes and returns the entry at the front of this queue.
+      @return  The object at the front of the queue. 
+      @throws  EmptyQueueException if the queue is empty before the operation. */
+  public T dequeue();
+  
+  /**  Retrieves the entry at the front of this queue.
+      @return  The object at the front of the queue.
+      @throws  EmptyQueueException if the queue is empty. */
+  public T getFront();
+  
+  /** Detects whether this queue is empty.
+      @return  True if the queue is empty, or false otherwise. */
+  public boolean isEmpty();
+  
+  /** Removes all entries from this queue. */
+  public void clear();
+
+} // end QueueInterface
+</code></pre>
+<pre><code>public class Patron
+{
+    private int number, arrivalTime, transactionTime;
+    private static int customerCount = 0;    
+    private String name, cardNumber, reason;
+
+    //  Constructor
+    Patron(int newArrivalTime, int newTransactionTime, String newName, String newCardNumber, String newReason)
+    {
+        arrivalTime = newArrivalTime;
+        transactionTime = newTransactionTime;
+        number = ++customerCount;
+        name = newName;
+        cardNumber = newCardNumber;
+        reason = newReason;
+    }
+    
+    public int getTransactionTime()
+    {
+        return transactionTime;
+    }
+    
+    public int getArrivalTime()
+    {
+        return arrivalTime;
+    }
+    
+    public int getNumber()
+    {
+       return number;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getCardNumber()
+    {
+        return cardNumber;
+    }
+
+    public String getReason()
+    {
+        return reason;
+    }
+
+    public String toString()
+    {
+        return name + &quot; (Library Card: &quot; + cardNumber + &quot;, Request: &quot; + reason + &quot;)&quot;;
+    }
+}
+</code></pre>
+<pre><code>/**
+   A class that implements the ADT queue by using a chain of nodes
+   that has both head and tail references.
+ 
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 4.0
+*/
+public final class LinkedQueue&lt;T&gt; implements QueueInterface&lt;T&gt;
+{
+   private Node firstNode; // References node at front of queue
+   private Node lastNode;  // References node at back of queue
+  	
+	public LinkedQueue()
+	{
+		firstNode = null;
+		lastNode = null;
+	} // end default constructor
+
+    public void enqueue(T newEntry)
+    {
+        Node newNode = new Node(newEntry, null);
+        if (isEmpty())
+            firstNode  = newNode;
+        else
+            lastNode.setNextNode(newNode);
+            lastNode = newNode;
+    } // end enqueue// Version 4.0
+
+    public T getFront()
+    {
+        if (isEmpty())
+            return null;
+        else
+            return firstNode.getData();
+    } 
+    // end getFront// Version 4.0
+
+    public T dequeue()
+    {
+        T front = getFront();
+     // Might throw EmptyQueueException
+        assert firstNode != null;
+        firstNode.setData(null);
+        firstNode = firstNode.getNextNode();
+        if (firstNode == null)  
+            lastNode = null;
+        return front;
+    } // end dequeue// Version 4.0
+
+    public boolean isEmpty()
+    {
+        return (firstNode == null) &amp;&amp; (lastNode == null);} 
+    // end isEmpty
+    
+    public void clear()
+    {
+        firstNode = null;
+        lastNode = null;
+    } // end clear// Version 4.0
+
+	private class Node
+	{
+		private T    data; // Entry in queue
+		private Node next; // Link to next node
+      
+		private Node(T dataPortion)
+		{
+			data = dataPortion;
+			next = null;
+		} // end constructor
+		
+		private Node(T dataPortion, Node linkPortion)
+		{
+			data = dataPortion;
+			next = linkPortion;
+		} // end constructor
+      
+		private T getData()
+		{
+			return data;
+		} // end getData
+      
+		private void setData(T newData)
+		{
+			data = newData;
+		} // end setData
+      
+		private Node getNextNode()
+		{
+			return next;
+		} // end getNextNode
+		
+		private void setNextNode(Node nextNode)
+		{
+			next = nextNode;
+		} // end setNextNode
+	} // end class Node
+} // end LinkedQueue
+</code></pre>
+<pre><code>public class TestWaitLine
+{
+    public static void main (String [] args)
+    {
+        WaitLine customerLine = new WaitLine ();
+        //  Simulate a waiting line with 20 minutes, 50% arrival probability,
+        //  and 5 minute maximum transaction time
+        customerLine.simulate(20, 0.6);
+        customerLine.displayResults();
+    }
+}
+</code></pre>
+<h1 id="tree">Tree</h1>
+<p>Tree data structure is a hierarchical structure that is used to represent and organize data in the form of parent child relationship.</p>
+<p><strong>Basic Terminologies In Tree Data Structure:</strong></p>
+<ul>
+<li>Parent Node<br>
+Child Node<br>
+Root Node<br>
+Leaf Node or External Node<br>
+Ancestor of a Node<br>
+Descendant<br>
+Sibling<br>
+Level of a node<br>
+Internal node<br>
+Neighbour of a Node<br>
+Subtree</li>
+</ul>
+<p><strong>Tree Traversal:</strong></p>
+<ul>
+<li>Depth-first search (DFS) algorithm
+<ul>
+<li><code>Inorder traversal</code>: Visits all nodes inside the left subtree, then visits the current node before visiting any node within the right subtree.</li>
+<li><code>Preorder traversal</code>: Visits the current node before visiting any nodes inside left or right subtrees.</li>
+<li><code>Postorder traversal</code>: Visits the current node after visiting all the nodes of left and right subtrees.</li>
+</ul>
+</li>
+<li>Breadth-first search (BFS) algorithm
+<ul>
+<li>Starts from the root node and visits all nodes of current depth before moving to the next depth in the tree.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Binary tree</strong></p>
+<p>A tree data structure in which each node has at most two children, referred to as the left child and the right child.</p>
+<h2 id="example-2">Example</h2>
+<pre><code>public class CreateTree {
+
+	public static void main(String[] args){
+		
+		BinaryTreeInterface&lt;String&gt; emptyTree = new BinaryTree&lt;&gt;();
+
+		// Leaf
+		BinaryTreeInterface&lt;String&gt; Tree7 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;7&quot;);
+		BinaryTreeInterface&lt;String&gt; Tree8 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;8&quot;);
+		BinaryTreeInterface&lt;String&gt; Tree6 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;6&quot;);
+
+		// Level 3: Right Child
+		BinaryTreeInterface&lt;String&gt; Tree4 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;4&quot;, emptyTree, Tree7);
+		BinaryTreeInterface&lt;String&gt; Tree5 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;5&quot;, emptyTree, Tree8);
+
+		// Level 2
+		BinaryTreeInterface&lt;String&gt; Tree2 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;2&quot;, Tree4, emptyTree);
+		BinaryTreeInterface&lt;String&gt; Tree3 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;3&quot;, Tree5, Tree6);
+
+		// Root
+		BinaryTreeInterface&lt;String&gt; Tree1 = new BinaryTree&lt;&gt;();
+		Tree7.setTree(&quot;1&quot;, Tree2, Tree3);
+
+	}
+}
+</code></pre>
+<pre><code>/**
+   A class that represents nodes in a binary tree.
+   
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 4.0
+*/
+class BinaryNode&lt;T&gt;
+{
+   private T             data;
+   private BinaryNode&lt;T&gt; leftChild;  // Reference to left child
+   private BinaryNode&lt;T&gt; rightChild; // Reference to right child
+
+   public BinaryNode()
+   {
+      this(null); // Call next constructor
+   } // end default constructor
+
+   public BinaryNode(T dataPortion)
+   {
+      this(dataPortion, null, null); // Call next constructor
+   } // end constructor
+
+   public BinaryNode(T dataPortion, BinaryNode&lt;T&gt; newLeftChild,
+                                    BinaryNode&lt;T&gt; newRightChild)
+   {
+      data = dataPortion;
+      leftChild = newLeftChild;
+      rightChild = newRightChild;
+   } // end constructor
+
+   /** Retrieves the data portion of this node.
+       @return  The object in the data portion of the node. */
+   public T getData()
+   {
+      return data;
+   } // end getData
+
+   /** Sets the data portion of this node.
+       @param newData  The data object. */
+   public void setData(T newData)
+   {
+      data = newData;
+   } // end setData
+
+   /** Retrieves the left child of this node.
+       @return  The nodeâ€™s left child. */
+   public BinaryNode&lt;T&gt; getLeftChild()
+   {
+      return leftChild;
+   } // end getLeftChild
+
+   /** Sets this node's left child to a given node.
+       @param newLeftChild  A node that will be the left child. */
+   public void setLeftChild(BinaryNode&lt;T&gt; newLeftChild)
+   {
+      leftChild = newLeftChild;
+   } // end setLeftChild
+
+   /** Detects whether this node has a left child.
+       @return  True if the node has a left child. */
+   public boolean hasLeftChild()
+   {
+      return leftChild != null;
+   } // end hasLeftChild
+
+   /** Retrieves the left child of this node.
+       @return  The node's left child. */
+   public BinaryNode&lt;T&gt; getRightChild()
+   {
+      return rightChild;
+   } // end getRightChild
+
+   /** Sets this node's right child to a given node.
+       @param newRightChild  A node that will be the right child. */
+   public void setRightChild(BinaryNode&lt;T&gt; newRightChild)
+   {
+      rightChild = newRightChild;
+   } // end setRightChild
+
+   /** Detects whether this node has a right child.
+       @return  True if the node has a right child. */
+   public boolean hasRightChild()
+   {
+      return rightChild != null;
+   } // end hasRightChild
+
+   /** Detects whether this node is a leaf.
+       @return  True if the node is a leaf. */
+   public boolean isLeaf()
+   {
+      return (leftChild == null) &amp;&amp; (rightChild == null);
+   } // end isLeaf
+
+/* &lt; Implementations of getRightChild, setRightChild, and hasRightChild are
+     analogous to their left-child counterparts. &gt; */
+   
+   public int getHeight()
+   {
+      return getHeight(this); // Call private getHeight
+   } // end getHeight
+
+   private int getHeight(BinaryNode&lt;T&gt; node)
+   {
+      int height = 0;
+  
+      if (node != null)
+         height = 1 + Math.max(getHeight(node.leftChild), 
+                            getHeight(node.rightChild));
+                          
+      return height;
+   } // end getHeight
+
+   /** Counts the nodes in the subtree rooted at this node.
+       @return  The number of nodes in the subtree rooted at this node. */
+   public int getNumberOfNodes()
+   {
+      int leftNumber = 0;
+      int rightNumber = 0;
+
+      if (leftChild != null)
+         leftNumber = leftChild.getNumberOfNodes();
+    
+      if (rightChild != null)
+         rightNumber = rightChild.getNumberOfNodes();
+    
+      return 1 + leftNumber + rightNumber;
+   } // end getNumberOfNodes */
+
+   /** Copies the subtree rooted at this node.
+       @return  The root of a copy of the subtree rooted at this node. */
+   public BinaryNode&lt;T&gt; copy()
+   {
+      BinaryNode&lt;T&gt; newRoot = new BinaryNode&lt;&gt;(data);
+
+      if (leftChild != null)
+         newRoot.setLeftChild(leftChild.copy());
+
+      if (rightChild != null)
+         newRoot.setRightChild(rightChild.copy());
+
+      return newRoot;
+   } // end copy
+
+} // end BinaryNode
+</code></pre>
+<pre><code>/**
+   A class that implements the ADT binary tree.
+   
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 4.0
+*/
+public class BinaryTree&lt;T&gt; implements BinaryTreeInterface&lt;T&gt;
+{
+   private BinaryNode&lt;T&gt; root;
+
+   public BinaryTree()
+   {
+      root = null;
+   } // end default constructor
+
+   public BinaryTree(T rootData)
+   {
+      root = new BinaryNode&lt;&gt;(rootData);
+   } // end constructor
+
+   public BinaryTree(T rootData, BinaryTree&lt;T&gt; leftTree, 
+                                 BinaryTree&lt;T&gt; rightTree)
+   {
+      privateSetTree(rootData, leftTree, rightTree);
+   } // end constructor
+
+   public void setTree(T rootData)
+   {
+      root = new BinaryNode&lt;&gt;(rootData);
+   } // end setTree
+
+   public void setTree(T rootData, BinaryTreeInterface&lt;T&gt; leftTree,
+                                   BinaryTreeInterface&lt;T&gt; rightTree)
+   {
+      privateSetTree(rootData, (BinaryTree&lt;T&gt;)leftTree, 
+                               (BinaryTree&lt;T&gt;)rightTree);
+   } // end setTree
+
+   private void privateSetTree(T rootData, BinaryTree&lt;T&gt; leftTree, 
+                               BinaryTree&lt;T&gt; rightTree)
+   {
+      // &lt; FIRST DRAFT - See Segments 24.4 - 24.7 for improvements. &gt;
+      root = new BinaryNode&lt;T&gt;(rootData);
+      
+      if (leftTree != null)
+         root.setLeftChild(leftTree.root);
+      
+      if (rightTree != null)
+         root.setRightChild(rightTree.root);
+   } // end privateSetTree
+
+/*  &lt; Implementations of getRootData, getHeight, getNumberOfNodes, isEmpty, clear,
+      and the methods specified in TreeIteratorInterface are here. &gt;
+   . . . */
+   public T getRootData()
+   {
+//      if (isEmpty())
+//         throw new EmptyTreeException();
+//      else
+           return root.getData();
+   } // end getRootData
+   
+   public int getHeight()
+   {
+      return root.getHeight();
+   } // end getHeight
+   
+   public int getNumberOfNodes()
+   {
+      return root.getNumberOfNodes();
+   } // end getNumberOfNodes
+   // Version 4.0
+   
+   public boolean isEmpty()
+   {
+      return root == null;
+   } // end isEmpty
+   
+   public void clear()
+   {
+      root = null;
+   } // end clear
+   
+   protected void setRootData(T rootData)
+   {
+      root.setData(rootData);
+   } // end setRootData
+   
+   protected void setRootNode(BinaryNode&lt;T&gt; rootNode)
+   {
+      root = rootNode;
+   } // end setRootNode
+   
+   protected BinaryNode&lt;T&gt; getRootNode()
+   {
+      return root;
+   } // end getRootNode
+   // Version 4.0
+
+   public void inorderTraverse ()
+   {
+      inorderTraverse (root);
+   }
+
+   private void inorderTraverse(BinaryNode&lt;T&gt; node)
+   {
+      if (node != null)
+      {
+         inorderTraverse (node.getLeftChild());
+         System.out.println (node.getData());
+         inorderTraverse (node.getRightChild());
+      } // end if
+   } // end inorderTraverse
+
+} // end BinaryTree
+</code></pre>
+<pre><code>/**
+   An interface for the ADT binary tree.
+   
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 4.0
+*/
+public interface BinaryTreeInterface&lt;T&gt; extends TreeInterface&lt;T&gt;
+{
+   /** Sets this binary tree to a new one-node binary tree.
+       @param rootData   The object that is the data for the new tree's root.
+   */
+   public void setTree(T rootData);
+
+   /** Sets this binary tree to a new binary tree.
+      @param rootData   The object that is the data for the new tree's root.
+      @param leftTree   The left subtree of the new tree.
+      @param rightTree  The right subtree of the new tree. */
+   public void setTree(T rootData, BinaryTreeInterface&lt;T&gt; leftTree,
+                                   BinaryTreeInterface&lt;T&gt; rightTree);
+} // end BinaryTreeInterface
+</code></pre>
+<pre><code>//  Main class to test tree traversals
+
+public class TraverseDemo
+{
+   public static void main (String [] args)
+   {
+      //  Create one node for each leaf (operand)
+      BinaryTree&lt;String&gt; dTree = new BinaryTree&lt;String&gt;();
+      dTree.setTree(&quot;5&quot;);
+      BinaryTree&lt;String&gt; eTree = new BinaryTree&lt;String&gt;();
+      eTree.setTree(&quot;2&quot;);
+      BinaryTree&lt;String&gt; fTree = new BinaryTree&lt;String&gt;();
+      fTree.setTree(&quot;6&quot;);
+      
+      //  Link nodes into expression
+      BinaryTree&lt;String&gt; gTree = new BinaryTree&lt;String&gt;();
+      gTree.setTree(&quot;*&quot;, dTree, eTree); 
+      BinaryTree&lt;String&gt; hTree = new BinaryTree&lt;String&gt;();
+      hTree.setTree(&quot;+&quot;, gTree, fTree); 
+
+      //  Traverse expression
+      hTree.inorderTraverse();
+   }
+}
+</code></pre>
+<pre><code>/**
+   An interface of basic methods for the ADT tree.
+ 
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 4.0
+*/
+public interface TreeInterface&lt;T&gt;
+{
+   public T getRootData();
+   public int getHeight();
+   public int getNumberOfNodes();
+   public boolean isEmpty();
+   public void clear();
+} // end TreeInterface
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data structure with Java - Part 1]]></title>
+        <id>https://zhaoq0901.github.io/post/data-structure-with-java-part-1/</id>
+        <link href="https://zhaoq0901.github.io/post/data-structure-with-java-part-1/">
+        </link>
+        <updated>2024-02-14T13:29:05.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>One sentence of Data Structure: a data organization and storage format that is usually chosen for efficient access to data.</strong></p>
+<p><strong>One sentence of Java abstract data type (ADT): a type of data type whose behaviour is defined by a set of operations and values.</strong></p>
+<ul>
+<li>The ADT defines the logical form of the data type v.s. The data structure implements the physical form of the data type.</li>
+</ul>
+<h1 id="arraylist">ArrayList</h1>
+<p><strong>An ArrayList is like a resizable array.</strong></p>
+<blockquote>
+<p>The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added and removed from an ArrayList whenever you want.</p>
+</blockquote>
+<pre><code>import java.util.ArrayList;
+
+/**
+Create an ArrayList that allows containing the books or remove the books from the ArrayList.
+*/
+public class Books
+{
+	public static void main(String[] args) 
+	{
+            // Setup Books (List)
+            Information[] bookList = {
+                  new Information(&quot;Brave New World&quot;, &quot;Aldous Huxley&quot;, &quot;823.912&quot;, 1, &quot;Dystopian&quot;),
+                  new Information(&quot;The Alchemist&quot;, &quot;Paulo Coelho&quot;, &quot;869.342&quot;, 2, &quot;World Literature&quot;),
+                  new Information(&quot;Man's Search for Meaning&quot;, &quot;Viktor E. Frankl&quot;, &quot;150.195&quot;, 3, &quot;Psychology&quot;),
+                  new Information(&quot;The Diary of a Young Girl&quot;, &quot;Anne Frank&quot;, &quot;940.5318&quot;, 4, &quot;History&quot;),
+                  new Information(&quot;Crime and Punishment&quot;, &quot;Fyodor Dostoevsky&quot;, &quot;891.733&quot;, 2, &quot;Russian Literature&quot;),
+                  new Information(&quot;Freakonomics&quot;, &quot;Steven D. Levitt&quot;, &quot;330&quot;, 4, &quot;Economics&quot;),
+                  new Information(&quot;The Road&quot;, &quot;Cormac McCarthy&quot;, &quot;813.54&quot;, 3, &quot;Contemporary Literature&quot;),
+                  new Information(&quot;Silent Spring&quot;, &quot;Rachel Carson&quot;, &quot;363.738&quot;, 2, &quot;Environmental Science&quot;),
+                  new Information(&quot;The Prince&quot;, &quot;Niccolò Machiavelli&quot;, &quot;320.1&quot;, 1, &quot;Political Science&quot;),
+                  new Information(&quot;The Handmaid's Tale&quot;, &quot;Margaret Atwood&quot;, &quot;813.54&quot;, 2, &quot;Dystopian Fiction&quot;),
+                  };
+                  
+            // Setup Library (ArrayList)
+            // ArrayList &lt;Item&gt; myList = new ArrayList &lt;Item&gt; ();
+            ArrayList &lt;Information&gt; library = new ArrayList &lt;Information&gt; ();
+      
+            // statements that add selected books to the Library:
+            for (int index = 0; index &lt; bookList.length; index++)
+            {
+                  Information nextBook = bookList[index]; // simulates getting book from bookList
+                  library.add(nextBook);
+            } // end for
+
+            // for-each loop: Print books' information by looping the Information object in library
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            // remove the 2nd book information
+            library.remove(1);
+            // add one book
+            library.add(new Information(&quot;1984&quot;, &quot;George Orwell&quot;, &quot;823.912&quot;, 3, &quot;Dystopian Fiction&quot;));
+
+            System.out.println(&quot;\n---------Remove Book 2 and add one book------------\n&quot;);
+
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            // remove the 6th book information
+            library.remove(5);
+            // add one book
+            library.add(new Information(&quot;The Art of War&quot;, &quot;Sun Tzu&quot;, &quot;355.02&quot;, 1, &quot;Military Strategy&quot;));
+
+            System.out.println(&quot;\n---------Remove Book 6 and add one book------------\n&quot;);
+
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            // remove the first book information
+            library.remove(0);
+            // add one book
+            library.add(new Information(&quot;Cosmos&quot;, &quot;Carl Sagan&quot;, &quot;520&quot;, 4, &quot;Astronomy&quot;));
+
+            System.out.println(&quot;\n---------Remove Book 1 and add one book------------\n&quot;);
+
+            for (Information information : library)
+            {
+                  System.out.println(information.getInformation());
+            }
+
+            System.out.println(&quot;\n---------Remove All Books------------\n&quot;);
+
+            library.removeAll(library);
+
+      } // end main
+ } // end Books
+
+// Information
+class Information
+{
+   private String name;
+   private String author;
+   private String call_number;
+   private int floor;
+   private String section;
+
+      // Constructor
+	public Information(String name, String author, String call_number, int floor, String section)
+	{
+		this.name = name;
+		this.author = author;
+		this.call_number = call_number;
+		this.floor = floor;
+		this.section = section;
+	}
+
+	// Getters
+	public String getInformation()
+	{
+		return &quot;name: &quot; + name + &quot;, author: &quot; + author + &quot;, call_number: &quot; + call_number + &quot;, floor: &quot; + floor + &quot;, section: &quot; + section;
+	}
+} 
+</code></pre>
+<h1 id="linkedlist">LinkedList</h1>
+<p>The LinkedList class is a collection which can contain many objects of the same type. <em>It works the same as ArrayList. However, they built very differently.</em></p>
+<p>The <code>ArrayList</code> class has a regular array inside it. When an element is added, it is placed into the array. If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.</p>
+<p>The <code>LinkedList</code> stores its elements in &quot;containers.&quot; The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.</p>
+<h2 id="example">Example</h2>
+<p>Create, compile, and run a program that manages a <code>Patron</code> linked list.<br>
+Learn to familiarize with interfaces and assembling pieces of a program to produce the program.</p>
+<blockquote>
+<p>/**<br>
+OnlineShopper and all the built up programs<br>
+@author Frank M. Carrano<br>
+@version 4.0<br>
+*/</p>
+</blockquote>
+<pre><code>import Patron;
+import java.util.Scanner;
+
+/** 
+ *  Create, compile, and run a program that manages a Patron linked list.
+ *  Learn to familiarize with interfaces and assembling pieces of a program to produce the program.
+*/
+
+public class PatronsList
+{
+    public static void main(String[] args) 
+    {
+        Patron[] patrons =
+        {
+            new Patron(1,&quot;Alice Johnson&quot;, &quot;A123BCX89Z&quot;, &quot;123 Maple St&quot;, &quot;Springfield&quot;, &quot;IL&quot;, 62704),
+            new Patron(2,&quot;Bob Smith&quot;, &quot;B456DFY77X&quot;, &quot;456 Oak Ave&quot;, &quot;Chicago&quot;, &quot;IL&quot;, 60616),
+            new Patron(3,&quot;Charlie Brown&quot;, &quot;C789GHJ65Y&quot;, &quot;789 Pine Rd&quot;, &quot;Naperville&quot;, &quot;IL&quot;, 60540),
+            new Patron(4,&quot;David Wilson&quot;, &quot;D321KLN43W&quot;, &quot;321 Birch Ln&quot;, &quot;Evanston&quot;, &quot;IL&quot;, 60201),
+            new Patron(5,&quot;Emma Davis&quot;, &quot;E654MOP21V&quot;, &quot;654 Cedar St&quot;, &quot;Aurora&quot;, &quot;IL&quot;, 60505),
+            new Patron(6,&quot;Frank Thomas&quot;, &quot;F987QRS09U&quot;, &quot;987 Walnut Ave&quot;, &quot;Rockford&quot;, &quot;IL&quot;, 61107),
+            new Patron(7,&quot;Grace Miller&quot;, &quot;G159TUV87T&quot;, &quot;159 Elm Dr&quot;, &quot;Peoria&quot;, &quot;IL&quot;, 61614),
+            new Patron(8,&quot;Henry Garcia&quot;, &quot;H753WXY65S&quot;, &quot;753 Oakwood Ct&quot;, &quot;Joliet&quot;, &quot;IL&quot;, 60435),
+            new Patron(9,&quot;Ivy Robinson&quot;, &quot;I852ZAB43R&quot;, &quot;852 Maplewood Rd&quot;, &quot;Elgin&quot;, &quot;IL&quot;, 60123),
+            new Patron(10,&quot;Jack Martinez&quot;, &quot;J369CDE21Q&quot;, &quot;369 Sycamore Blvd&quot;, &quot;Waukegan&quot;, &quot;IL&quot;, 60085)
+        };
+        
+        // Patron LinkedList
+        LinkedBag&lt;Patron&gt; patronsList = new LinkedBag&lt;Patron&gt;();
+
+        // Statements that add selected patrons to the Patron List:
+        for (int index = 0; index &lt; patrons.length; index++)
+        {
+            Patron nextPatrons = patrons[index];
+            patronsList.add(nextPatrons); 
+            System.out.println(nextPatrons.toString());
+        } // end for
+
+        System.out.println(&quot;----------------------------------&quot;);
+
+        // Asking the user to select a patron by id
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(&quot;\nEnter a patron id to view details: &quot;);
+        int checkId = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        System.out.println(&quot;Check ID = &quot; + checkId + &quot; patron.\n&quot;);
+
+        // Check if the patron in the list by index
+        if (checkId &gt; patronsList.getCurrentSize() || checkId &lt;= 0)
+        {
+            System.out.println(&quot;Sorry, the patron is undefine.\n&quot;);
+        }
+        else
+        {
+            for (int index = 0; index &lt; patronsList.getCurrentSize()+1; index++)
+            {
+                if (index == checkId) {
+                    Patron checkPatrons = patrons[index-1];
+                    //patronsList.contains(checkPatrons);
+                    System.out.println(checkPatrons.printInfoString());
+                }
+                
+            } // end for
+        }
+        
+        // close scanner
+        scanner.close();
+
+    } // end main
+} // end PatronsList
+
+/*
+1       Alice Johnson
+2       Bob Smith
+3       Charlie Brown
+4       David Wilson
+5       Emma Davis
+6       Frank Thomas
+7       Grace Miller
+8       Henry Garcia
+9       Ivy Robinson
+10      Jack Martinez
+*/
+</code></pre>
+<pre><code>public class Patron 
+{
+     private int    id;
+     private String name;
+     private String library_card_number;
+     private String address;
+     private String city;
+     private String state;
+     private int    zip_code;
+
+
+     public Patron(int id, String name, String library_card_number, String address, String city, String state, int zip_code)
+     {
+     this.id = id;
+     this.name = name;
+     this.library_card_number = library_card_number;
+     this.address = address;
+     this.city = city;
+     this.state = state;
+     this.zip_code = zip_code;
+     }// end constructor
+
+    public int getId() 
+    {
+         return id;
+    } // end getId
+   
+    public String getName() 
+    {
+         return name;
+    } // end getName
+
+    public String toString() 
+    {
+         return id + &quot;\t&quot; + name;
+    } // end toString
+
+    // return patron's information
+    public String printInfoString() 
+    {
+         return &quot;Name: &quot; + name + &quot;\n&quot; + 
+                &quot;Library Card Number: &quot; + library_card_number + &quot;\n&quot; +
+                &quot;Address:&quot; + &quot;\n&quot; + address + &quot;\n&quot; + city + &quot;, &quot; + state + &quot; &quot; + zip_code;
+    } // end printInfoString
+
+} // end Patron
+</code></pre>
+<pre><code>/**
+   An interface that describes the operations of a bag of objects.
+   @author Frank M. Carrano
+   @version 4.0
+*/
+public interface BagInterface&lt;T&gt;
+{
+	/** Gets the current number of entries in this bag.
+	   @return  The integer number of entries currently in the bag. */
+	public int getCurrentSize();
+	
+	/** Sees whether this bag is empty.
+	   @return  True if the bag is empty, or false if not. */
+	public boolean isEmpty();
+	
+	/** Adds a new entry to this bag.
+	   @param newEntry  The object to be added as a new entry.
+	   @return  True if the addition is successful, or false if not. */
+	public boolean add(T newEntry);
+
+	/** Removes one unspecified entry from this bag, if possible.
+           @return  The removed entry if the removal was successful, or null. */
+	public T remove();
+   
+	/** Removes one occurrence of a given entry from this bag.
+           @param anEntry  The entry to be removed.
+           @return  True if the removal was successful, or false if not. */
+        public boolean remove(T anEntry);
+	
+	/** Removes all entries from this bag. */
+	public void clear();
+	
+	/** Counts the number of times a given entry appears in this bag.
+	   @param anEntry  The entry to be counted.
+	   @return  The number of times anEntry appears in the bag. */
+	public int getFrequencyOf(T anEntry);
+	
+	/** Tests whether this bag contains a given entry.
+	   @param anEntry  The entry to locate.
+	   @return  True if the bag contains anEntry, or false if not. */
+	public boolean contains(T anEntry);
+   
+	/** Retrieves all entries that are in this bag.
+	   @return  A newly allocated array of all the entries in the bag.
+            Note: If the bag is empty, the returned array is empty. */
+	public T[] toArray();
+
+} // end BagInterface
+</code></pre>
+<pre><code>public final class LinkedBag&lt;T&gt; implements BagInterface&lt;T&gt;
+{
+    Node firstNode;
+    int numberOfEntries;
+
+    // Simple constructor
+    public LinkedBag()
+    {
+        firstNode = null;
+        numberOfEntries = 0;
+    } // end default constructor
+
+    /** Gets the number of entries currently in this bag.
+    @return  The integer number of entries currently in the bag. */
+    public int getCurrentSize()
+    {
+        return numberOfEntries;
+    }  // end
+    
+    /** Sees whether this bag is empty.
+    @return True if the bag is empty, false otherwise.
+    */
+    public boolean isEmpty()
+    {
+        return firstNode == null;
+    }  // end
+
+    /** Adds a new entry to this bag.
+        @param newEntry  The object to be added as a new entry.
+        @return  true. */
+    public boolean add(T newEntry)
+    {
+        Node newNode = new Node (newEntry);
+        newNode.next = firstNode;
+        firstNode = newNode;
+        ++numberOfEntries;
+        return true;
+    }  // end
+
+    /** Removes one unspecified entry from this bag, if possible.
+    @return  Either the removed entry, if the removal
+    was successful, or null. */
+    public T remove()
+    {
+        T result = null;
+        if (firstNode != null)
+        {
+            result = firstNode.data;
+            firstNode = firstNode.next;
+            --numberOfEntries;    
+        }
+        return result;
+    }  // end
+
+    /**  Locates a given entry within this bag.
+    @param anEntry  The entry to be located.
+    @return  A reference to the node if located, or null otherwise. */
+    private Node getReferenceTo (T anEntry)
+    {
+        T tempEntry;
+        Node currentNode = firstNode;
+        boolean found = false;
+        while (!found &amp;&amp; currentNode != null)
+        {
+            tempEntry = currentNode.data;
+            if (anEntry.equals (tempEntry))
+               found = true;
+            else
+               currentNode = currentNode.next;
+        }
+        return currentNode;
+    }
+   
+    /** Removes one occurrence of a given entry from this bag.
+    @param anEntry  The entry to be removed.
+    @return  True if the removal was successful, or false otherwise. */
+    public boolean remove(T anEntry)
+    {
+        boolean result = false;
+        Node currentNode = getReferenceTo (anEntry);
+        if (currentNode != null)
+        {
+            currentNode.data = firstNode.data;
+            firstNode = firstNode.next;
+            --numberOfEntries;
+            result = true;
+        }
+        return result;
+        
+    }  // end
+
+    /** Removes all entries from this bag. */
+    public void clear()
+    {
+        while (!isEmpty())
+          {
+              remove ();
+          }
+      numberOfEntries = 0;
+    }  // end
+
+    /** Counts the number of times a given entry appears in this bag.
+    @param anEntry  The entry to be counted.
+    @return  The number of times anEntry appears in the bag. */
+    public int getFrequencyOf(T anEntry)
+    {
+        Node currentNode = firstNode;
+        int frequency = 0;
+        while (currentNode != null)
+        {
+            if (anEntry.equals (currentNode.data))
+               ++frequency;
+            currentNode = currentNode.next;
+        }
+        return frequency;
+    }  // end
+
+    /** Tests whether this bag contains a given entry.
+    @param anEntry  The entry to locate.
+    @return  True if the bag contains anEntry, or false otherwise. */
+    public boolean contains(T anEntry)
+    {
+        Node currentNode = getReferenceTo (anEntry);
+        return !(currentNode == null);
+    }  // end
+
+    /** Retrieves all entries that are in this bag.
+    @return  A newly allocated array of all the entries in this bag. */
+    public T[] toArray()
+    {
+        @SuppressWarnings (&quot;unchecked&quot;)
+        T[] result = (T[]) new Object[numberOfEntries];
+        int index = 0;
+        Node currentNode = firstNode;
+        while (currentNode != null)
+        {
+            result [index] = currentNode.data;
+            ++index;
+            currentNode = currentNode.next;
+        }
+        return result;
+    }
+
+private class Node
+{
+    private T data;
+    private Node next;
+
+//  Two contructors.
+    private Node (T dataPortion)
+    {
+        this (dataPortion, null);
+    }
+
+    private Node (T dataPortion, Node nextNode)
+    {
+        data = dataPortion;
+        next = nextNode;   
+    }
+    
+    public T getData()
+    {
+        return data;
+    }
+
+}
+} // end LinkedBag
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Object-oriented programming with C++]]></title>
+        <id>https://zhaoq0901.github.io/post/object-oriented-programming-with-c/</id>
+        <link href="https://zhaoq0901.github.io/post/object-oriented-programming-with-c/">
+        </link>
+        <updated>2024-01-28T21:37:50.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="example-1">Example 1:</h1>
+<p>Demonstrate, create and use user-defined data type, using C++ Class<br>
+Department with data members deptId, name and totalEmp, overload the operato + for Department class to sum the totalEmp.<br>
+Use parametric Constructor Department(int id, string name, int ecount) to initialize these data members.</p>
+<pre><code>- Department dept1(100,&quot;COMP&quot;,10);
+- Department dept2(20,&quot;MATH&quot;, 20);
+
+- cout&lt;&lt;dept1 + dept2;
+- should return sum of totalEmp i.e. 30 
+</code></pre>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+// Global variables
+static const int TotalDeptId = 3;
+
+class Department{
+private:
+    int deptId;
+    string name;
+    int ecount;
+public:
+    Department();
+    Department(int id, string d_name, int d_ecount);
+
+    //Get methods
+    int GetId() const;
+    string GetName() const;
+    int GetEcount() const;
+
+    //Print method
+    void Print();
+
+};
+
+Department::Department(){
+    deptId = 0;
+    name;
+    ecount = 0;
+}
+Department::Department(int id, string d_name, int d_ecount){
+    deptId = id;
+    name = d_name;
+    ecount = d_ecount;
+}
+
+//Get methods
+int Department::GetId() const{ return deptId; }
+string Department::GetName() const{ return name; }
+int Department::GetEcount() const{ return ecount; }
+
+//Print method
+void Department::Print(){
+    cout &lt;&lt; &quot;Department ID: &quot; &lt;&lt; deptId &lt;&lt; &quot; name: &quot; &lt;&lt; name &lt;&lt; &quot; encout: &quot; &lt;&lt; ecount &lt;&lt; endl;
+}
+
+//Overload operator
+const Department operator +(const Department &amp;a, const Department &amp;b){
+    int sum = a.GetEcount() + b.GetEcount();
+    return Department(TotalDeptId, &quot;totalEmp&quot;, sum);
+}
+
+int main(int argc, char const *argv[])
+{
+    Department A(1, &quot;COMP&quot;, 10);
+    A.Print();
+    Department B(2, &quot;MATH&quot;, 20);
+    B.Print();
+
+    Department C;
+    C = A+B;
+
+    cout &lt;&lt; &quot;The sum of Department1 and Department2 is: &quot; &lt;&lt; endl;
+    C.Print();
+
+    return 0;
+}
+</code></pre>
+<h1 id="example-2">Example 2</h1>
+<p>Write a program that accesses predefined template-class vector in code libraries to find and print min, max,  and &quot;centered average&quot;, use pre-initialized data. Use for/while loop to solve this problem.</p>
+<p>&quot;centered average&quot; is the mean average of the values, except ignoring the largest and smallest values.<br>
+If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value.</p>
+<pre><code>// centeredAverage({5, 3, 3, 4, 8},5) == 4
+// centeredAverage({-1, 1, 6, 4, 9, 8, 7},7) == 5
+// centeredAverage({-15, -5, -1, -3, -3, 1},6) == -3
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+void findMinMax(const int arr[], int lenth){
+
+    //Print array
+    cout &lt;&lt; &quot;Array: { &quot;;
+    for (int i = 0; i &lt; lenth; i++)
+    {
+        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
+    
+    //*max_element (first_index, last_index);
+    //use pointer variable and memory address
+    cout &lt;&lt; &quot;Max: &quot; &lt;&lt; *max_element(arr, arr+lenth) &lt;&lt; &quot; &quot;
+         &lt;&lt; &quot;Min: &quot; &lt;&lt; *min_element(arr, arr+lenth) &lt;&lt; endl;
+}
+
+void centeredAverage(int arr[], int lenth){
+    
+    int sum = 0;
+
+    //Sort Array
+    sort(arr, arr+lenth);
+
+    //Print Array after sorting
+    cout &lt;&lt; &quot;Array after sorting: { &quot;;
+    for (int i = 0; i &lt; lenth; i++)
+    {
+        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
+
+    //Set min(first) and max(last) elements to 0
+    arr[0] = 0;
+    arr[lenth-1] = 0;
+
+    for (int i = 0; i &lt; lenth; i++)
+    {
+        sum += arr[i];
+    }
+    
+    cout &lt;&lt; &quot;The center Average is: &quot; &lt;&lt; sum/(lenth-2) &lt;&lt; endl;
+}
+
+int main(int argc, char const *argv[])
+{
+    int arr1[5] = {5, 3, 3, 4, 8};
+    int arr2[7] = {-1, 1, 6, 4, 9, 8, 7};
+    int arr3[6] = {-15, -5, -1, -3, -3, 1};
+
+    findMinMax(arr1, 5);
+    centeredAverage(arr1, 5); // == 4
+    findMinMax(arr2, 7);
+    centeredAverage(arr2, 7); // == 5
+    findMinMax(arr3, 6);
+    centeredAverage(arr3, 6); // == -3
+
+    return 0;
+}
+</code></pre>
+<h1 id="example-3">Example 3</h1>
+<p>Demonstrate the use of pointers and dynamic memory allocation using <code>Employee</code> class with name as dynamic data (string pointer )<br>
+Load the employee data from a file <code>empData.txt</code> using file stream, and use Copy constructor to deep copy the employee data.</p>
+<p>Create a text data file empData.txt with the following Id, Name, and dept data to read from this C++ program.</p>
+<ul>
+<li>empData.txt: 101,Employee1,10</li>
+</ul>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;sstream&gt; // istringstream
+#include &lt;vector&gt;
+
+//using namespace std;
+
+class Employee{
+private:
+    int id;
+    std::string* name;
+    int dept;
+public:
+    Employee(int id, const std::string &amp;name, int dept) : id(id), dept(dept){
+        this-&gt;name = new std::string(name);
+    }
+
+    Employee(const Employee &amp;other) : id(other.id), dept(other.dept){
+        this-&gt;name = new std::string(*(other.name));
+    }
+
+    ~Employee(){
+        delete name;
+    }
+
+    void display() const{
+        std::cout &lt;&lt; &quot;ID: &quot; &lt;&lt; id &lt;&lt; &quot;, Name: &quot; &lt;&lt; *name &lt;&lt; &quot;, Dept: &quot; &lt;&lt; dept &lt;&lt; std::endl;
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    int id, dept;
+    std::string name;
+
+    std::ifstream inFile;
+    std::string inputString;
+
+    std::cout &lt;&lt; &quot;Opening file...\n&quot;;
+    inFile.open(&quot;empData.txt&quot;);
+
+    if (inFile.is_open()){
+        while (std::getline(inFile, inputString))
+        //This allows the program to read and process each subsequent line of the file until there are no more lines remaining.
+        {
+            //What is iss object?
+            std::istringstream iss(inputString); //The iss object is initialized with inputString. 
+            std::string part;
+
+            std::getline(iss, part, ',');
+            id = std::stoi(part); // stoi() Converts string to integer
+            
+            std::getline(iss, part, ',');
+            name = part;
+
+            std::getline(iss, part, ',');
+            dept = std::stoi(part);
+
+            std::cout &lt;&lt; &quot;ID: &quot; &lt;&lt; id &lt;&lt; &quot;, Name: &quot; &lt;&lt; name &lt;&lt; &quot;, Department: &quot; &lt;&lt; dept &lt;&lt; std::endl;
+        }
+        inFile.close();
+    }else{
+        std::cout &lt;&lt; &quot;Fail to open the file.&quot;;
+    }
+    
+    Employee* emp1 = new Employee(id, name, dept);
+    std::cout &lt;&lt; &quot;Original Employee Data: &quot; &lt;&lt; std::endl;
+    emp1-&gt;display();
+
+    Employee emp2(*emp1);
+    std::cout &lt;&lt; &quot;Copied Employee Data:&quot; &lt;&lt; std::endl;
+    emp2.display();
+
+    inFile.close();
+    delete emp1;
+
+    return 0;
+}
+</code></pre>
+<h1 id="example-4">Example 4:</h1>
+<p>Create an abstract base class Number with abstract function print, derive the <code>Complex</code> class from the base class <code>Number</code>, and overload + and - to add and subtract complex numbers.</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+//Base class
+class Number{
+private:
+    virtual void Print() = 0; //Base class
+};
+
+//`Complex class` inherits from `Number class`
+class Complex : public Number{
+private:
+    int real = 0;
+    int img = 0;
+public:
+
+    Complex(); //default
+    Complex(int n_real, int n_img);
+
+    //Get methods
+    int GetR() const;
+    int GetI() const;
+
+    //Override function `Print()`
+    void Print() override {
+        cout &lt;&lt; real &lt;&lt; &quot; &quot;;
+        //Judge is imaginary number part positive or negative
+        if (img &gt; 0){
+            cout &lt;&lt; &quot;+ &quot; &lt;&lt; img &lt;&lt; &quot;i&quot; &lt;&lt; endl;
+        }else{
+            cout &lt;&lt; &quot;- &quot; &lt;&lt; abs(img) &lt;&lt; &quot;i&quot; &lt;&lt; endl;
+        } 
+    }
+};
+
+Complex::Complex(){ //default
+    int real = 0;
+    int img = 0;
+}
+
+Complex::Complex(int n_real, int n_img){
+    real = n_real;
+    img = n_img;
+}
+
+//Get methods
+int Complex::GetR() const{ return real; }
+int Complex::GetI() const{ return img; }
+
+//Overload operator: +, -
+Complex operator +(Complex &amp;a, Complex &amp;b){
+    int sumR = a.GetR() + b.GetR();
+    int sumI = a.GetI() + b.GetI();
+    return Complex(sumR, sumI);
+}
+
+Complex operator -(Complex &amp;a, Complex &amp;b){
+    int subR = a.GetR() - b.GetR();
+    int subI = a.GetI() - b.GetI();
+    return Complex(subR, subI);
+}
+
+int main(int argc, char const *argv[])
+{
+    int a_real = 0;
+    int a_img = 0;
+    int b_real = 0;
+    int b_img = 0;
+
+    cout &lt;&lt; &quot;Please enter the real and imaginary number for Complex A: &quot; &lt;&lt; endl;
+    cin &gt;&gt; a_real;
+    cin &gt;&gt; a_img;
+    cout &lt;&lt; &quot;Please enter the real and imaginary number for Complex B: &quot; &lt;&lt; endl;
+    cin &gt;&gt; b_real;
+    cin &gt;&gt; b_img;
+
+    Complex A(a_real, a_img);
+    cout &lt;&lt; &quot;A: &quot; &lt;&lt; endl;
+    A.Print();
+    Complex B(b_real, b_img);
+    cout &lt;&lt; &quot;B: &quot; &lt;&lt; endl;
+    B.Print();
+
+    Complex C;
+    C = A+B; // add
+    cout &lt;&lt; &quot;A+B: &quot; &lt;&lt; endl;
+    C.Print();
+    C = A-B; // subtract
+    cout &lt;&lt; &quot;A-B: &quot; &lt;&lt; endl;
+    C.Print();
+
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Object-oriented programming with C++]]></title>
+        <id>https://zhaoq0901.github.io/post/object-oriented-programming-with-c++/</id>
+        <link href="https://zhaoq0901.github.io/post/object-oriented-programming-with-c++/">
+        </link>
+        <updated>2024-01-28T13:46:20.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="example-1">Example 1:</h1>
+<ul>
+<li>Demonstrate, create and use user-defined data type, using C++ Class</li>
+<li>Department with data members <code>deptId</code>, <code>name</code> and <code>totalEmp</code>; overload the operato <code>+</code> for <strong>Department</strong> class to sum the <code>totalEmp</code>.</li>
+<li>Use parametric <strong>Constructor Department(int id, string name, int ecount)</strong> to initialize these data members.</li>
+</ul>
+<pre><code>- Department dept1(100,&quot;COMP&quot;,10);
+- Department dept2(20,&quot;MATH&quot;, 20);
+
+- cout&lt;&lt;dept1 + dept2;
+- should return sum of totalEmp i.e. 30 
+</code></pre>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+// Global variables
+static const int TotalDeptId = 3;
+
+class Department{
+private:
+    int deptId;
+    string name;
+    int ecount;
+public:
+    Department();
+    Department(int id, string d_name, int d_ecount);
+
+    //Get methods
+    int GetId() const;
+    string GetName() const;
+    int GetEcount() const;
+
+    //Print method
+    void Print();
+
+};
+
+Department::Department(){
+    deptId = 0;
+    name;
+    ecount = 0;
+}
+Department::Department(int id, string d_name, int d_ecount){
+    deptId = id;
+    name = d_name;
+    ecount = d_ecount;
+}
+
+//Get methods
+int Department::GetId() const{ return deptId; }
+string Department::GetName() const{ return name; }
+int Department::GetEcount() const{ return ecount; }
+
+//Print method
+void Department::Print(){
+    cout &lt;&lt; &quot;Department ID: &quot; &lt;&lt; deptId &lt;&lt; &quot; name: &quot; &lt;&lt; name &lt;&lt; &quot; encout: &quot; &lt;&lt; ecount &lt;&lt; endl;
+}
+
+//Overload operator
+const Department operator +(const Department &amp;a, const Department &amp;b){
+    int sum = a.GetEcount() + b.GetEcount();
+    return Department(TotalDeptId, &quot;totalEmp&quot;, sum);
+}
+
+int main(int argc, char const *argv[])
+{
+    Department A(1, &quot;COMP&quot;, 10);
+    A.Print();
+    Department B(2, &quot;MATH&quot;, 20);
+    B.Print();
+
+    Department C;
+    C = A+B;
+
+    cout &lt;&lt; &quot;The sum of Department1 and Department2 is: &quot; &lt;&lt; endl;
+    C.Print();
+
+    return 0;
+}
+</code></pre>
+<h1 id="example-2">Example 2</h1>
+<ul>
+<li>
+<p>Write a program that accesses predefined template-class vector in code libraries to find and print <code>min</code>, <code>max</code>, and <code>centered average</code>, use pre-initialized data. Use for/while loop to solve this problem.</p>
+<ul>
+<li><code>centered average</code> is the mean average of the values, except ignoring the largest and smallest values.</li>
+<li>If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value.</li>
+</ul>
+</li>
+</ul>
+<pre><code>// centeredAverage({5, 3, 3, 4, 8},5) == 4
+// centeredAverage({-1, 1, 6, 4, 9, 8, 7},7) == 5
+// centeredAverage({-15, -5, -1, -3, -3, 1},6) == -3
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+void findMinMax(const int arr[], int lenth){
+
+    //Print array
+    cout &lt;&lt; &quot;Array: { &quot;;
+    for (int i = 0; i &lt; lenth; i++)
+    {
+        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
+    
+    //*max_element (first_index, last_index);
+    //use pointer variable and memory address
+    cout &lt;&lt; &quot;Max: &quot; &lt;&lt; *max_element(arr, arr+lenth) &lt;&lt; &quot; &quot;
+         &lt;&lt; &quot;Min: &quot; &lt;&lt; *min_element(arr, arr+lenth) &lt;&lt; endl;
+}
+
+void centeredAverage(int arr[], int lenth){
+    
+    int sum = 0;
+
+    //Sort Array
+    sort(arr, arr+lenth);
+
+    //Print Array after sorting
+    cout &lt;&lt; &quot;Array after sorting: { &quot;;
+    for (int i = 0; i &lt; lenth; i++)
+    {
+        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
+
+    //Set min(first) and max(last) elements to 0
+    arr[0] = 0;
+    arr[lenth-1] = 0;
+
+    for (int i = 0; i &lt; lenth; i++)
+    {
+        sum += arr[i];
+    }
+    
+    cout &lt;&lt; &quot;The center Average is: &quot; &lt;&lt; sum/(lenth-2) &lt;&lt; endl;
+}
+
+int main(int argc, char const *argv[])
+{
+    int arr1[5] = {5, 3, 3, 4, 8};
+    int arr2[7] = {-1, 1, 6, 4, 9, 8, 7};
+    int arr3[6] = {-15, -5, -1, -3, -3, 1};
+
+    findMinMax(arr1, 5);
+    centeredAverage(arr1, 5); // == 4
+    findMinMax(arr2, 7);
+    centeredAverage(arr2, 7); // == 5
+    findMinMax(arr3, 6);
+    centeredAverage(arr3, 6); // == -3
+
+    return 0;
+}
+</code></pre>
+<h1 id="example-3">Example 3</h1>
+<ul>
+<li>
+<p>Demonstrate the use of pointers and dynamic memory allocation using <code>Employee</code> class with name as dynamic data (string pointer )</p>
+</li>
+<li>
+<p>Load the employee data from a file <code>empData.txt</code> using file stream, and use Copy constructor to deep copy the employee data.</p>
+</li>
+<li>
+<p>Create a text data file <code>empData.txt</code> with the following Id, Name, and dept data to read from this C++ program.</p>
+<ul>
+<li>empData.txt: 101,Employee1,10</li>
+</ul>
+</li>
+</ul>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;sstream&gt; // istringstream
+#include &lt;vector&gt;
+
+//using namespace std;
+
+class Employee{
+private:
+    int id;
+    std::string* name;
+    int dept;
+public:
+    Employee(int id, const std::string &amp;name, int dept) : id(id), dept(dept){
+        this-&gt;name = new std::string(name);
+    }
+
+    Employee(const Employee &amp;other) : id(other.id), dept(other.dept){
+        this-&gt;name = new std::string(*(other.name));
+    }
+
+    ~Employee(){
+        delete name;
+    }
+
+    void display() const{
+        std::cout &lt;&lt; &quot;ID: &quot; &lt;&lt; id &lt;&lt; &quot;, Name: &quot; &lt;&lt; *name &lt;&lt; &quot;, Dept: &quot; &lt;&lt; dept &lt;&lt; std::endl;
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    int id, dept;
+    std::string name;
+
+    std::ifstream inFile;
+    std::string inputString;
+
+    std::cout &lt;&lt; &quot;Opening file...\n&quot;;
+    inFile.open(&quot;empData.txt&quot;);
+
+    if (inFile.is_open()){
+        while (std::getline(inFile, inputString))
+        //This allows the program to read and process each subsequent line of the file until there are no more lines remaining.
+        {
+            //What is iss object?
+            std::istringstream iss(inputString); //The iss object is initialized with inputString. 
+            std::string part;
+
+            std::getline(iss, part, ',');
+            id = std::stoi(part); // stoi() Converts string to integer
+            
+            std::getline(iss, part, ',');
+            name = part;
+
+            std::getline(iss, part, ',');
+            dept = std::stoi(part);
+
+            std::cout &lt;&lt; &quot;ID: &quot; &lt;&lt; id &lt;&lt; &quot;, Name: &quot; &lt;&lt; name &lt;&lt; &quot;, Department: &quot; &lt;&lt; dept &lt;&lt; std::endl;
+        }
+        inFile.close();
+    }else{
+        std::cout &lt;&lt; &quot;Fail to open the file.&quot;;
+    }
+    
+    Employee* emp1 = new Employee(id, name, dept);
+    std::cout &lt;&lt; &quot;Original Employee Data: &quot; &lt;&lt; std::endl;
+    emp1-&gt;display();
+
+    Employee emp2(*emp1);
+    std::cout &lt;&lt; &quot;Copied Employee Data:&quot; &lt;&lt; std::endl;
+    emp2.display();
+
+    inFile.close();
+    delete emp1;
+
+    return 0;
+}
+</code></pre>
+<h1 id="example-4">Example 4:</h1>
+<p>Create an abstract base class Number with abstract function print, derive the <code>Complex</code> class from the base class <code>Number</code>, and overload <code>+</code> and <code>-</code> to add and subtract complex numbers.</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+//Base class
+class Number{
+private:
+    virtual void Print() = 0; //Base class
+};
+
+//`Complex class` inherits from `Number class`
+class Complex : public Number{
+private:
+    int real = 0;
+    int img = 0;
+public:
+
+    Complex(); //default
+    Complex(int n_real, int n_img);
+
+    //Get methods
+    int GetR() const;
+    int GetI() const;
+
+    //Override function `Print()`
+    void Print() override {
+        cout &lt;&lt; real &lt;&lt; &quot; &quot;;
+        //Judge is imaginary number part positive or negative
+        if (img &gt; 0){
+            cout &lt;&lt; &quot;+ &quot; &lt;&lt; img &lt;&lt; &quot;i&quot; &lt;&lt; endl;
+        }else{
+            cout &lt;&lt; &quot;- &quot; &lt;&lt; abs(img) &lt;&lt; &quot;i&quot; &lt;&lt; endl;
+        } 
+    }
+};
+
+Complex::Complex(){ //default
+    int real = 0;
+    int img = 0;
+}
+
+Complex::Complex(int n_real, int n_img){
+    real = n_real;
+    img = n_img;
+}
+
+//Get methods
+int Complex::GetR() const{ return real; }
+int Complex::GetI() const{ return img; }
+
+//Overload operator: +, -
+Complex operator +(Complex &amp;a, Complex &amp;b){
+    int sumR = a.GetR() + b.GetR();
+    int sumI = a.GetI() + b.GetI();
+    return Complex(sumR, sumI);
+}
+
+Complex operator -(Complex &amp;a, Complex &amp;b){
+    int subR = a.GetR() - b.GetR();
+    int subI = a.GetI() - b.GetI();
+    return Complex(subR, subI);
+}
+
+int main(int argc, char const *argv[])
+{
+    int a_real = 0;
+    int a_img = 0;
+    int b_real = 0;
+    int b_img = 0;
+
+    cout &lt;&lt; &quot;Please enter the real and imaginary number for Complex A: &quot; &lt;&lt; endl;
+    cin &gt;&gt; a_real;
+    cin &gt;&gt; a_img;
+    cout &lt;&lt; &quot;Please enter the real and imaginary number for Complex B: &quot; &lt;&lt; endl;
+    cin &gt;&gt; b_real;
+    cin &gt;&gt; b_img;
+
+    Complex A(a_real, a_img);
+    cout &lt;&lt; &quot;A: &quot; &lt;&lt; endl;
+    A.Print();
+    Complex B(b_real, b_img);
+    cout &lt;&lt; &quot;B: &quot; &lt;&lt; endl;
+    B.Print();
+
+    Complex C;
+    C = A+B; // add
+    cout &lt;&lt; &quot;A+B: &quot; &lt;&lt; endl;
+    C.Print();
+    C = A-B; // subtract
+    cout &lt;&lt; &quot;A-B: &quot; &lt;&lt; endl;
+    C.Print();
+
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connecting to MySQL using JDBC]]></title>
+        <id>https://zhaoq0901.github.io/post/connecting-to-mysql-using-jdbc/</id>
+        <link href="https://zhaoq0901.github.io/post/connecting-to-mysql-using-jdbc/">
+        </link>
+        <updated>2023-06-22T01:56:22.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>The JDBC API defines a set of interfaces and classes that all major database providers adhere to in order allow Java developers to seamlessly connect to many Relational Database Management Systems (RDBMS). All major vendors provide their own JDBC drivers which contain a set of java classes that enables you to connect to that particular database.</p>
+</blockquote>
+<p>What JDBC does is standardize how to do many of the operations like: connect to the database, how to query the database, how to update the database, and how to call stored procedures.</p>
+<figure data-type="image" tabindex="1"><img src="https://zhaoq0901.github.io/post-images/1753063048966.png" alt="" loading="lazy"></figure>
+<p><em>Require lib:</em></p>
+<ul>
+<li>mysql-connector-j-8.3.0.jar</li>
+<li>db.properties</li>
+</ul>
+<pre><code>// db.properties
+driver=com.mysql.cj.jdbc.Driver
+url=jdbc:mysql://localhost:3306/jdbcStudy?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true
+username=root
+password=123456
+</code></pre>
+<h1 id="my-first-jdbc-program">My First JDBC Program</h1>
+<pre><code>import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DemoJDBC {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        // 1. Load the JDBC driver
+        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;); 
+        // com.mysql.cj.jdbc.Driver is used for MySQL 8.0 — standard usage
+
+        // 2. User information and JDBC URL
+        // Format: jdbc:mysql://host:port/database?parameters
+        String url = &quot;jdbc:mysql://localhost:3306/jdbcStudy?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true&quot;;
+
+        // Explanation of URL parameters:
+        // useUnicode=true — enables Unicode support (for Chinese characters, etc.)
+        // characterEncoding=utf8 — sets encoding to UTF-8
+        // useSSL=true — SSL connection security setting
+
+        // Database credentials
+        String username = &quot;root&quot;;
+        String password = &quot;123456&quot;;
+
+        // 3. Establish connection to the database
+        // The Connection object represents the database itself
+        Connection connection = DriverManager.getConnection(url, username, password);
+
+        // Operations at the database (DB) level:
+        // connection.commit();            // Commit transaction
+        // connection.rollback();          // Rollback transaction
+        // connection.setAutoCommit(false); // Disable auto-commit
+
+        // 4. Create a Statement object to execute SQL commands
+        java.sql.Statement statement = connection.createStatement();
+
+        // Operations at the SQL level:
+        // statement.executeQuery(sql); — used for SELECT queries (returns ResultSet)
+        // statement.execute(sql); — executes any SQL command
+        // statement.executeUpdate(sql); — used for INSERT, UPDATE, DELETE (returns affected row count)
+        // statement.executeBatch(); — executes a batch of SQL commands
+
+        // 5. Execute SQL and process the result
+        String sql = &quot;SELECT * FROM `users`&quot;; // SQL query
+
+        // Execute the query, returning a ResultSet (query result)
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        // Iterate over the result set
+        while (resultSet.next()) {
+            System.out.println(&quot;id = &quot; + resultSet.getObject(&quot;id&quot;));
+            System.out.println(&quot;name = &quot; + resultSet.getObject(&quot;NAME&quot;));
+            System.out.println(&quot;pwd = &quot; + resultSet.getObject(&quot;PASSWORD&quot;));
+            System.out.println(&quot;email = &quot; + resultSet.getObject(&quot;email&quot;));
+            System.out.println(&quot;birth = &quot; + resultSet.getObject(&quot;birthday&quot;));
+            System.out.println(&quot;-------------------------------&quot;);
+        }
+
+        // Notes on ResultSet:
+        // resultSet.getObject(&quot;columnName&quot;); — use when unsure of the column type
+        // resultSet.getInt(&quot;id&quot;); — use when the column type is known
+
+        // ResultSet cursor methods:
+        // resultSet.next(); — move to the next row
+        // resultSet.beforeFirst(); — move before the first row
+        // resultSet.afterLast(); — move after the last row
+
+        // 6. Close resources
+        resultSet.close();
+        statement.close();
+        connection.close();
+    }
+}
+</code></pre>
+<h2 id="utils-insert">Utils &amp; Insert</h2>
+<h3 id="utils">Utils</h3>
+<ul>
+<li>Utility class for JDBC operations:</li>
+<li>Loading configuration from db.properties</li>
+<li>Establishing and releasing connections</li>
+</ul>
+<pre><code>package mySQL.Demo2.utils;
+
+import java.sql.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class JdbcUtils {
+
+    private static String driver = null;
+    private static String url = null;
+    private static String username = null;
+    private static String password = null;
+
+    // Static block to initialize database configuration
+    static {
+        try {
+            // Load configuration file from classpath
+            InputStream in = JdbcUtils.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);
+            Properties properties = new Properties();
+            properties.load(in);
+
+            // Read configuration values
+            driver = properties.getProperty(&quot;driver&quot;);
+            url = properties.getProperty(&quot;url&quot;);
+            username = properties.getProperty(&quot;username&quot;);
+            password = properties.getProperty(&quot;password&quot;);
+
+            // Load JDBC driver (only needs to be done once)
+            Class.forName(driver);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Get a JDBC connection
+     * @return a Connection object
+     * @throws SQLException if a database access error occurs
+     */
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, username, password);
+    }
+
+    /**
+     * Release JDBC resources
+     * @param conn the Connection to close (can be null)
+     * @param st the Statement to close (can be null)
+     * @param rs the ResultSet to close (can be null)
+     */
+    public static void release(Connection conn, Statement st, ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (st != null) {
+            try {
+                st.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="insert">Insert</h3>
+<pre><code>package mySQL.Demo2;
+
+import java.sql.Statement;
+import mySQL.Demo2.utils.JdbcUtils;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class TestInsert {
+    public static void main(String[] args) {
+
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+
+        try {
+            conn = JdbcUtils.getConnection(); // Get database connection
+            st = conn.createStatement(); // Get the SQL execution object
+
+            String sql = &quot;INSERT INTO `users`(`id`,`NAME`,`PASSWORD`,`email`,`birthday`)&quot; +
+                         &quot;VALUES(7,'shandon','123456','sd@sina.com','1980-12-04');&quot;;
+
+            int i = st.executeUpdate(sql);
+            if (i &gt; 0) {
+                System.out.println(&quot;Insert successful!&quot;);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.release(conn, st, rs); // Error: java.lang.NoClassDefFoundError: Could not initialize class mySQL.Demo2.utils.JdbcUtils
+        }
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Input / Output]]></title>
+        <id>https://zhaoq0901.github.io/post/input-output/</id>
+        <link href="https://zhaoq0901.github.io/post/input-output/">
+        </link>
+        <updated>2023-06-10T14:03:32.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>One sentence for I/O: the communication between a computer system and external devices or the user, encompassing both the data sent to the computer and the data received from it.</strong></p>
+<h1 id="example-bufferedoutputstream-bufferedinputstream">Example: BufferedOutputStream ＆ BufferedInputStream</h1>
+<pre><code>import java.io.*;
+
+// Byte streams + wrapped streams for file copying
+public class BufferedCopy {
+    public static void main(String[] args) throws Exception {
+        String srcPath = &quot;C:\\Users\\zhao\\Downloads\\wonder.pdf&quot;; // Source file path
+        String readPath = &quot;D:\\wonder.pdf&quot;; // Destination file path
+
+        // Create a BufferedInputStream object
+        BufferedInputStream bip = new BufferedInputStream(new FileInputStream(srcPath));
+        // Create a BufferedOutputStream object
+        BufferedOutputStream bop = new BufferedOutputStream(new FileOutputStream(readPath, false));
+
+        // Loop to read the file and write it to the destination path
+        byte[] buff = new byte[1024];
+        int readLength = 0;
+        // When read() returns -1, it means end of file
+        while ((readLength = bip.read(buff)) != -1) {
+            bop.write(buff, 0, readLength);
+        }
+
+        // Close the streams
+        if (bip != null) {
+            bip.close();
+        }
+        if (bop != null) {
+            bop.close();
+        }
+    }
+}
+</code></pre>
+<h1 id="example-create-a-file-write-to-a-file-and-read-from-a-file">Example: Create a file, write to a file and read from a file</h1>
+<ul>
+<li>
+<p>InputStream - Byte input stream</p>
+</li>
+<li>
+<p>OutputStream - Byte output stream</p>
+</li>
+<li>
+<p>Reader - Character input stream</p>
+</li>
+<li>
+<p>Writer - Character output stream</p>
+</li>
+<li>
+<p>When garbled characters (e.g., with Chinese text) appear using character/byte streams, a conversion stream is needed to specify the encoding format.</p>
+</li>
+<li>
+<p>Character/byte stream (garbled) -&gt; Conversion stream (specify encoding) -&gt; Character/byte stream (normal)</p>
+</li>
+</ul>
+<pre><code>import java.io.*;
+
+public class FileCreate {
+    public static void main(String[] args) {
+        // new FileCreate().Create();
+        // new FileCreate().readFile(); // Extension: Output might show garbled Chinese characters
+        new FileCreate().writeFile();
+    }
+
+    // Create a file
+    // new File(String pathname) // Construct file object based on path
+    public void Create() {
+        String creatFile = &quot;D:\\test.txt&quot;;
+
+        // The file object here only exists in Java memory.
+        // Only calling .createNewFile() will actually create the file on the disk.
+        File file = new File(creatFile);
+
+        try {
+            file.createNewFile();
+            System.out.println(&quot;Successfully created test.txt&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Write to a file using FileOutputStream
+    public void writeFile() {
+        String filePath = &quot;D:\\test.txt&quot;;
+
+        FileOutputStream fileOutputStream = null;
+        try {
+            // 1. new FileOutputStream(filePath): overwrites existing content
+            // 2. new FileOutputStream(filePath, true): appends to existing content
+            fileOutputStream = new FileOutputStream(filePath, true);
+
+            // Write a string to the file
+            String str = &quot;Hello, world!&quot;;
+            fileOutputStream.write(str.getBytes()); // Convert string to byte array
+            System.out.println(&quot;Write successful.&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Read from a file using FileInputStream
+    public void readFile() {
+        String filePath = &quot;D:\\test.txt&quot;;
+        byte[] buf = new byte[8]; // Read 8 bytes at a time
+        int readLen;
+        FileInputStream fileInputStream = null;
+
+        try {
+            // Create FileInputStream object to read the file
+            fileInputStream = new FileInputStream(filePath);
+
+            // Read up to buf.length bytes into the buffer
+            // Returns -1 if the end of the file is reached
+            while ((readLen = fileInputStream.read(buf)) != -1) {
+                // Convert bytes to string and print
+                System.out.print(new String(buf, 0, readLen));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Always close the stream to free resources
+            try {
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<h1 id="example-serialization-deserialization">Example: Serialization &amp; Deserialization</h1>
+<ul>
+<li>Serialization: When saving data, both the data's value and type are saved.</li>
+<li>Deserialization: When restoring data, both the data's value and type are restored.</li>
+</ul>
+<pre><code>import java.io.*;
+
+// ObjectInputStream
+// Demonstrates the use of ObjectInputStream to perform data deserialization
+
+public class ObjectInStream {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, EOFException {
+        // Specify the file to deserialize
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
+
+        // The order of reading (deserialization) must match the order used during saving (serialization),
+        // otherwise an exception will occur.
+        System.out.println(ois.readInt());
+        System.out.println(ois.readBoolean());
+
+        // System.out.println(ois.readObject()); // Underlying object is cast to Dog
+
+        Object dog = ois.readObject();
+        System.out.println(&quot;Runtime type: &quot; + dog.getClass());
+        System.out.println(&quot;Dog info: &quot; + dog);
+        // Note: ObjectOutputStream must flush the stream during serialization
+
+        // Close the stream
+        ois.close();
+    }
+}
+</code></pre>
+<pre><code>// ObjectOutputStream:
+// Demonstrates the usage of ObjectOutputStream to perform data serialization.
+
+public class ObjectOutStream {
+    public static void main(String[] args) throws Exception {
+
+        // The file where serialized data will be saved.
+        // The actual file type depends on the data being saved, not the file extension.
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath, false));
+
+        // Serialize data to d:\\text.txt
+        oos.writeInt(100);           // int -&gt; Integer (implements Serializable)
+        oos.writeBoolean(true);      // boolean -&gt; Boolean (implements Serializable)
+
+        // Save a Dog object
+        oos.writeObject(new Dog(&quot;Happiness&quot;));
+
+        // Close the stream
+        oos.close();
+    }
+}
+
+// The Dog class must implement the Serializable interface to be serialized
+class Dog implements Serializable {
+    String name;
+
+    // serialVersionUID: Serialization version ID to improve compatibility
+    private static final long serialVersionUID = 1L;
+
+    // Constructor
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Dog [name=&quot; + name + &quot;]&quot;;
+    }
+
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</code></pre>
+<h1 id="example-reader-writer">Example: Reader &amp; Writer</h1>
+<ul>
+<li>
+<p>Node stream</p>
+</li>
+<li>
+<p>Wrapper stream</p>
+</li>
+<li>
+<p>Use the conversion stream InputStreamReader to solve Chinese character encoding issues</p>
+</li>
+<li>
+<p>(Convert byte stream FileInputStream into character stream InputStreamReader with specified encoding)</p>
+</li>
+</ul>
+<pre><code>import java.io.*;
+
+public class Reader {
+    public static void main(String[] args) throws Exception {
+        //new Reader().fileReaderExample();
+        new Reader().bufferedReaderExample(); // If not handled properly, throws an exception and may cause Chinese garbled output
+    }
+
+    // Node stream
+
+    // FileReader
+    // Read file using a character array
+    // Using FileReader to read files encoded with Windows system default (Chinese GBK) may cause garbled text
+    // e.g., &quot;test测试&quot; -&gt; &quot;test娴嬭瘯銆?&quot;
+
+    public void fileReaderExample() {
+        String filePath = &quot;d:\\text.txt&quot;;
+        FileReader fileReader = null;
+
+        int readLength = 0;
+        char[] buf = new char[8];
+
+        try {
+            // 1. Create a FileReader object
+            fileReader = new FileReader(filePath);
+
+            // Read the file in a loop using read(buf), which returns the number of characters actually read
+            // If it returns -1, it means the end of the file has been reached
+            while ((readLength = fileReader.read(buf)) != -1) {
+                System.out.println(new String(buf, 0, readLength)); // Read buf starting from index 0, for readLength characters
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Wrapper stream
+
+    // BufferedReader
+    public void bufferedReaderExample() throws Exception {
+        String filePath = &quot;D:\\projects\\damai.py&quot;;
+
+        // Byte stream -&gt; conversion stream (with specified encoding) -&gt; character stream
+        BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(filePath), &quot;utf-8&quot;)
+        );
+
+        // Read file line by line for high efficiency
+        String line;
+        // 1. bufferedReader.readLine() reads the file line by line
+        // 2. Returns null when end of file is reached
+        // 3. readLine() does not include the line break character
+        while ((line = bufferedReader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        // Close outer stream
+        bufferedReader.close();
+    }
+}
+</code></pre>
+<pre><code>import java.io.*;
+
+public class Writer {
+
+    public static void main(String[] args) throws Exception {
+        
+        // Wrapper stream
+        // BufferedWriter
+
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        // Create a BufferedWriter object
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath));
+        bufferedWriter.write(&quot;hello, world!&quot;);
+
+        // Insert a system-dependent newline
+        bufferedWriter.newLine();
+
+        // Only need to close the outer stream; new FileWriter() will be closed internally
+        bufferedWriter.close();
+
+        // FileWriter
+        // Node stream
+        // new Writer().fileWriterExample(args);
+    }
+
+    // FileWriter
+    // Node stream
+    public void fileWriterExample(String[] args) {
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        // 1. Create a FileWriter object
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(filePath); // Default behavior is to overwrite
+            fileWriter.write(&quot;test 测试.&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // FileWriter must be closed using .close() or flushed using .flush()
+            // Otherwise, the content will only be stored in memory and not actually written to the file
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Input/Output]]></title>
+        <id>https://zhaoq0901.github.io/post/inputoutput/</id>
+        <link href="https://zhaoq0901.github.io/post/inputoutput/">
+        </link>
+        <updated>2023-06-10T12:50:39.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>One sentence for I/O: the communication between a computer system and external devices or the user, encompassing both the data sent to the computer and the data received from it.</strong></p>
+<h3 id="example-bufferedoutputstream-bufferedinputstream">Example: BufferedOutputStream ＆ BufferedInputStream</h3>
+<pre><code>import java.io.*;
+
+// Byte streams + wrapped streams for file copying
+public class BufferedCopy {
+    public static void main(String[] args) throws Exception {
+        String srcPath = &quot;C:\\Users\\zhao\\Downloads\\wonder.pdf&quot;; // Source file path
+        String readPath = &quot;D:\\wonder.pdf&quot;; // Destination file path
+
+        // Create a BufferedInputStream object
+        BufferedInputStream bip = new BufferedInputStream(new FileInputStream(srcPath));
+        // Create a BufferedOutputStream object
+        BufferedOutputStream bop = new BufferedOutputStream(new FileOutputStream(readPath, false));
+
+        // Loop to read the file and write it to the destination path
+        byte[] buff = new byte[1024];
+        int readLength = 0;
+        // When read() returns -1, it means end of file
+        while ((readLength = bip.read(buff)) != -1) {
+            bop.write(buff, 0, readLength);
+        }
+
+        // Close the streams
+        if (bip != null) {
+            bip.close();
+        }
+        if (bop != null) {
+            bop.close();
+        }
+    }
+}
+</code></pre>
+<h3 id="example-create-a-file-write-to-a-file-and-read-from-a-file">Example: Create a file, write to a file and read from a file</h3>
+<ul>
+<li>
+<p>InputStream - Byte input stream</p>
+</li>
+<li>
+<p>OutputStream - Byte output stream</p>
+</li>
+<li>
+<p>Reader - Character input stream</p>
+</li>
+<li>
+<p>Writer - Character output stream</p>
+</li>
+<li>
+<p>When garbled characters (e.g., with Chinese text) appear using character/byte streams, a conversion stream is needed to specify the encoding format.</p>
+</li>
+<li>
+<p>Character/byte stream (garbled) -&gt; Conversion stream (specify encoding) -&gt; Character/byte stream (normal)</p>
+</li>
+</ul>
+<pre><code>import java.io.*;
+
+public class FileCreate {
+    public static void main(String[] args) {
+        // new FileCreate().Create();
+        // new FileCreate().readFile(); // Extension: Output might show garbled Chinese characters
+        new FileCreate().writeFile();
+    }
+
+    // Create a file
+    // new File(String pathname) // Construct file object based on path
+    public void Create() {
+        String creatFile = &quot;D:\\test.txt&quot;;
+
+        // The file object here only exists in Java memory.
+        // Only calling .createNewFile() will actually create the file on the disk.
+        File file = new File(creatFile);
+
+        try {
+            file.createNewFile();
+            System.out.println(&quot;Successfully created test.txt&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Write to a file using FileOutputStream
+    public void writeFile() {
+        String filePath = &quot;D:\\test.txt&quot;;
+
+        FileOutputStream fileOutputStream = null;
+        try {
+            // 1. new FileOutputStream(filePath): overwrites existing content
+            // 2. new FileOutputStream(filePath, true): appends to existing content
+            fileOutputStream = new FileOutputStream(filePath, true);
+
+            // Write a string to the file
+            String str = &quot;Hello, world!&quot;;
+            fileOutputStream.write(str.getBytes()); // Convert string to byte array
+            System.out.println(&quot;Write successful.&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Read from a file using FileInputStream
+    public void readFile() {
+        String filePath = &quot;D:\\test.txt&quot;;
+        byte[] buf = new byte[8]; // Read 8 bytes at a time
+        int readLen;
+        FileInputStream fileInputStream = null;
+
+        try {
+            // Create FileInputStream object to read the file
+            fileInputStream = new FileInputStream(filePath);
+
+            // Read up to buf.length bytes into the buffer
+            // Returns -1 if the end of the file is reached
+            while ((readLen = fileInputStream.read(buf)) != -1) {
+                // Convert bytes to string and print
+                System.out.print(new String(buf, 0, readLen));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Always close the stream to free resources
+            try {
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="example-serialization-deserialization">Example: Serialization &amp; Deserialization</h3>
+<ul>
+<li>Serialization: When saving data, both the data's value and type are saved.</li>
+<li>Deserialization: When restoring data, both the data's value and type are restored.</li>
+</ul>
+<pre><code>import java.io.*;
+
+// ObjectInputStream
+// Demonstrates the use of ObjectInputStream to perform data deserialization
+
+public class ObjectInStream {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, EOFException {
+        // Specify the file to deserialize
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
+
+        // The order of reading (deserialization) must match the order used during saving (serialization),
+        // otherwise an exception will occur.
+        System.out.println(ois.readInt());
+        System.out.println(ois.readBoolean());
+
+        // System.out.println(ois.readObject()); // Underlying object is cast to Dog
+
+        Object dog = ois.readObject();
+        System.out.println(&quot;Runtime type: &quot; + dog.getClass());
+        System.out.println(&quot;Dog info: &quot; + dog);
+        // Note: ObjectOutputStream must flush the stream during serialization
+
+        // Close the stream
+        ois.close();
+    }
+}
+</code></pre>
+<pre><code>// ObjectOutputStream:
+// Demonstrates the usage of ObjectOutputStream to perform data serialization.
+
+public class ObjectOutStream {
+    public static void main(String[] args) throws Exception {
+
+        // The file where serialized data will be saved.
+        // The actual file type depends on the data being saved, not the file extension.
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath, false));
+
+        // Serialize data to d:\\text.txt
+        oos.writeInt(100);           // int -&gt; Integer (implements Serializable)
+        oos.writeBoolean(true);      // boolean -&gt; Boolean (implements Serializable)
+
+        // Save a Dog object
+        oos.writeObject(new Dog(&quot;Happiness&quot;));
+
+        // Close the stream
+        oos.close();
+    }
+}
+
+// The Dog class must implement the Serializable interface to be serialized
+class Dog implements Serializable {
+    String name;
+
+    // serialVersionUID: Serialization version ID to improve compatibility
+    private static final long serialVersionUID = 1L;
+
+    // Constructor
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Dog [name=&quot; + name + &quot;]&quot;;
+    }
+
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</code></pre>
+<h3 id="example-reader-writer">Example: Reader &amp; Writer</h3>
+<ul>
+<li>
+<p>Node stream</p>
+</li>
+<li>
+<p>Wrapper stream</p>
+</li>
+<li>
+<p>Use the conversion stream InputStreamReader to solve Chinese character encoding issues</p>
+</li>
+<li>
+<p>(Convert byte stream FileInputStream into character stream InputStreamReader with specified encoding)</p>
+</li>
+</ul>
+<pre><code>import java.io.*;
+
+public class Reader {
+    public static void main(String[] args) throws Exception {
+        //new Reader().fileReaderExample();
+        new Reader().bufferedReaderExample(); // If not handled properly, throws an exception and may cause Chinese garbled output
+    }
+
+    // Node stream
+
+    // FileReader
+    // Read file using a character array
+    // Using FileReader to read files encoded with Windows system default (Chinese GBK) may cause garbled text
+    // e.g., &quot;test测试&quot; -&gt; &quot;test娴嬭瘯銆?&quot;
+
+    public void fileReaderExample() {
+        String filePath = &quot;d:\\text.txt&quot;;
+        FileReader fileReader = null;
+
+        int readLength = 0;
+        char[] buf = new char[8];
+
+        try {
+            // 1. Create a FileReader object
+            fileReader = new FileReader(filePath);
+
+            // Read the file in a loop using read(buf), which returns the number of characters actually read
+            // If it returns -1, it means the end of the file has been reached
+            while ((readLength = fileReader.read(buf)) != -1) {
+                System.out.println(new String(buf, 0, readLength)); // Read buf starting from index 0, for readLength characters
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Wrapper stream
+
+    // BufferedReader
+    public void bufferedReaderExample() throws Exception {
+        String filePath = &quot;D:\\projects\\damai.py&quot;;
+
+        // Byte stream -&gt; conversion stream (with specified encoding) -&gt; character stream
+        BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(filePath), &quot;utf-8&quot;)
+        );
+
+        // Read file line by line for high efficiency
+        String line;
+        // 1. bufferedReader.readLine() reads the file line by line
+        // 2. Returns null when end of file is reached
+        // 3. readLine() does not include the line break character
+        while ((line = bufferedReader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        // Close outer stream
+        bufferedReader.close();
+    }
+}
+</code></pre>
+<pre><code>import java.io.*;
+
+public class Writer {
+
+    public static void main(String[] args) throws Exception {
+        
+        // Wrapper stream
+        // BufferedWriter
+
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        // Create a BufferedWriter object
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath));
+        bufferedWriter.write(&quot;hello, world!&quot;);
+
+        // Insert a system-dependent newline
+        bufferedWriter.newLine();
+
+        // Only need to close the outer stream; new FileWriter() will be closed internally
+        bufferedWriter.close();
+
+        // FileWriter
+        // Node stream
+        // new Writer().fileWriterExample(args);
+    }
+
+    // FileWriter
+    // Node stream
+    public void fileWriterExample(String[] args) {
+        String filePath = &quot;d:\\text.txt&quot;;
+
+        // 1. Create a FileWriter object
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(filePath); // Default behavior is to overwrite
+            fileWriter.write(&quot;test 测试.&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // FileWriter must be closed using .close() or flushed using .flush()
+            // Otherwise, the content will only be stored in memory and not actually written to the file
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
+</feed>

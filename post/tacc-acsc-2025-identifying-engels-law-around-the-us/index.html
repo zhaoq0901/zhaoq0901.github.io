@@ -1,0 +1,286 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TACC ACSC 2025: Identifying Engel&#39;s Law around the U.S. | Qian</title>
+<link rel="shortcut icon" href="https://zhaoq0901.github.io/favicon.ico?v=1771370411468">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhaoq0901.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="TACC ACSC 2025: Identifying Engel&#39;s Law around the U.S. | Qian - Atom Feed" href="https://zhaoq0901.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+What is Engel's Law?
+Engel's Law: As household's income , the % of income spent on food will decrease, although the amo..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhaoq0901.github.io">
+  <img class="avatar" src="https://zhaoq0901.github.io/images/avatar.png?v=1771370411468" alt="">
+  </a>
+  <h1 class="site-title">
+    Qian
+  </h1>
+  <p class="site-description">
+    Lack of Sleep
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/qians-resume" class="menu">
+          Résumé
+        </a>
+      
+    
+      
+        <a href="/post/cv-of-failures" class="menu">
+          CV of Failures
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/zhaoq0901" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              TACC ACSC 2025: Identifying Engel&#39;s Law around the U.S.
+            </h2>
+            <div class="post-info">
+              <span>
+                2025-07-24
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <figure data-type="image" tabindex="1"><img src="https://zhaoq0901.github.io/post-images/1759864826374.jpg" alt="" loading="lazy"></figure>
+<h1 id="what-is-engels-law">What is Engel's Law?</h1>
+<p><strong><code>Engel's Law</code>: As household's income , the % of income spent on food will decrease, although the amount of food expenditure may increase.</strong></p>
+<p>This means when people solve their basic living cost, they will have more spending on other goods and services, such as education and recreation.</p>
+<p><code>Engel's Coefficient</code> = Food Expenditure / Household Income</p>
+<ul>
+<li>Close to 1:
+<ul>
+<li>The family spent <strong>most</strong> of their income on food</li>
+</ul>
+</li>
+<li>Close to 0:
+<ul>
+<li>The family spent <strong>less</strong> of their income on food</li>
+</ul>
+</li>
+</ul>
+<h2 id="why-should-we-care">Why should we care?</h2>
+<p>By calculating the Engel's coefficient, we can know the familiy's living standard. If their coefficient is high, that means they are struggling with food accessibility. Therefore, they lack money for other services, such as education and healthcare.</p>
+<h1 id="research-question">Research Question</h1>
+<p><strong>What is the relationship between <code>Household Income</code> and <code>Food Expenditure</code> in the U.S. from 2015 to 2019?</strong></p>
+<p>Why <code>Household Income</code>?</p>
+<ul>
+<li>Since indiviude may have different eating habits, such as vegetarian or anorexia, those will the factor to affect the result.</li>
+</ul>
+<p>What is <code>Food Expenditure</code>?</p>
+<ul>
+<li>The amount of money spent on food (Food-at-home &amp; Food-away-from-home)
+<ul>
+<li>Food-at-home (FAH):
+<ul>
+<li>The food and beverages purchased from grocery stores, supermarkets, convenience stores, and other retail outlets for consumption at home.</li>
+</ul>
+</li>
+<li>Food-away-from-home (FAFH):
+<ul>
+<li>All meals and snacks purchased from restaurants, cafes, fast-food outlets, and other establishments where food is prepared and consumed outside the home.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Why <code>2015 to 2019</code>?</p>
+<ul>
+<li>I want to do the researching in 5 years period. However, due to the pendamic happend, the 2020 data of household income is missing, and the food expenditure data weren't update after 2023.</li>
+</ul>
+<h1 id="methodology">Methodology</h1>
+<ul>
+<li>Dataset:
+<ul>
+<li><code>US Census</code>: Household Income American Community Survey (ACS) 1-year estimate</li>
+<li><code>USDA</code>: Food Expenditure Series</li>
+<li><code>USDA</code>: Current Population Survey (CPS) Food Security Supplement</li>
+</ul>
+</li>
+<li>System and tool:
+<ul>
+<li><code>Stampede3</code> provide by Texas Advanced Computing Center (TACC)</li>
+<li><code>Python3</code> with Jupyter Notebook</li>
+</ul>
+</li>
+</ul>
+<h1 id="data-vistulization-analysis">Data vistulization &amp; analysis</h1>
+<h2 id="engel-coefficient-by-state-2015-2019">Engel Coefficient by State (2015-2019)</h2>
+<figure data-type="image" tabindex="2"><img src="https://zhaoq0901.github.io/post-images/1753585245104.png" alt="" loading="lazy"></figure>
+<p>This geographic heatmap indicates families' Engel coefficients by states. <strong>The color gets darker when families from that state have an Engel coefficient close to 1</strong>, which means they are struggling with basic food needs.</p>
+<h2 id="engel-coefficient-vs-household-income-top-10-states-by-engel-coefficient">Engel Coefficient vs. Household Income (Top 10 States by Engel Coefficient)</h2>
+<figure data-type="image" tabindex="3"><img src="https://zhaoq0901.github.io/post-images/1753585773363.png" alt="" loading="lazy"></figure>
+<p><code>Expectation</code>: Engel Coefficient (%) is high because the family has less household income</p>
+<p>Low income family needs to put more money on food.</p>
+<p><strong>However, there is an outlier: California.</strong></p>
+<figure data-type="image" tabindex="4"><img src="https://zhaoq0901.github.io/post-images/1753586129185.png" alt="" loading="lazy"></figure>
+<p>Consistently from 2015 to 2019: <em>although people from California can make a good amount of money, there are still a lot of families that are struggling with food security.</em></p>
+<h2 id="food-security-in-ca">Food Security In CA</h2>
+<figure data-type="image" tabindex="5"><img src="https://zhaoq0901.github.io/post-images/1753586248230.png" alt="" loading="lazy"></figure>
+<center>⬆Definition of Food Security</center>
+<figure data-type="image" tabindex="6"><img src="https://zhaoq0901.github.io/post-images/1753586299263.png" alt="" loading="lazy"></figure>
+<p><u>The documentation of the Current Population Survey (CPS) states that the data represents 20% of the California population. </U></p>
+<p>Therefore, 20% of California's population experiences food insecurity.</p>
+<p>Among these families, 90% of them are receiving food from the food distribution program or are on the <em>Supplemental Nutrition Assistance Program (SNAP).</em></p>
+<p>The rest 10% are hard to access nutritious food, and even skip meals every day.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The data analysis mostly supports Engel's Law.</p>
+<ul>
+<li>Higher household income → lower % of income spent on food</li>
+<li>Familes with higher household income can inveset their money on other supplement goods or services beyong the basic needs.</li>
+</ul>
+<p>However, under certain circumstances (such as CA), Engel's Law may not hold true. The potential reason behind this could be:</p>
+<ul>
+<li>Food prices</li>
+<li>Population density</li>
+<li>Distance from grocery stores</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#what-is-engels-law">What is Engel's Law?</a>
+<ul>
+<li><a href="#why-should-we-care">Why should we care?</a></li>
+</ul>
+</li>
+<li><a href="#research-question">Research Question</a></li>
+<li><a href="#methodology">Methodology</a></li>
+<li><a href="#data-vistulization-analysis">Data vistulization &amp; analysis</a>
+<ul>
+<li><a href="#engel-coefficient-by-state-2015-2019">Engel Coefficient by State (2015-2019)</a></li>
+<li><a href="#engel-coefficient-vs-household-income-top-10-states-by-engel-coefficient">Engel Coefficient vs. Household Income (Top 10 States by Engel Coefficient)</a></li>
+<li><a href="#food-security-in-ca">Food Security In CA</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhaoq0901.github.io/post/nexo-siren-2025-ray-tracker/">
+              <h3 class="post-title">
+                nEXO SIREN 2025: Ray Tracker
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://zhaoq0901.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
